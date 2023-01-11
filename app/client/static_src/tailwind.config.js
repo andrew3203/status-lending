@@ -57,12 +57,18 @@ module.exports = {
             },
             maxHeight: {
                 '864': '864px',
+                '500': '500px',
             },
             borderRadius: {
                 'large': '56px',
+                '4xl': '64px',
             },
             boxShadow: {
                 'ssl': '0px 4px 15px rgba(0, 0, 0, 0.25)',
+            },
+            dropShadow: {
+                'ssl': '0px 4px 15px rgba(0, 0, 0, 0.25)',
+                
             },
             fontSize: {
                 'h': ['20px', {

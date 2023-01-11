@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	{% tailwind_css %}
+	<link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
 </head>
 
 <body class="leading-normal tracking-normal">
@@ -16,7 +17,8 @@
 		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
 				<a href="#">
-					<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' /></a>
+					<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' />
+				</a>
 			</div>
 			<div class="flex-auto flex flex-row justify-around mx-4">
 				<a href="#">Главная</a>
@@ -27,9 +29,12 @@
 				<a href="#">Контакты</a>
 			</div>
 			<div class="flex-none flex flex-row items-center gap-1 mr-12">
-				<a href="#"><img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' /></a>
-				<a href="#"><img class="max-h-16 object-contain"
-						src='{% static "/utils/icons/icon_watssup.svg" %}' /></a>
+				<a href="#">
+					<img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
+				</a>
+				<a href="#">
+					<img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
+				</a>
 			</div>
 		</div>
 	</section>
@@ -41,6 +46,74 @@
 		</div>
 
 	</section>
+
+	<section class="z-10 container mx-auto mt-12 mb-20">
+
+		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
+			<h2 class="text-4xl">Фотографии проекта</h2>
+		</div>
+
+		<!-- Swiper -->
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
+						alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
+						alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
+						alt="">
+				</div>
+				<div class="swiper-slide">
+					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
+						alt="">
+				</div>
+
+			</div>
+			<div class="flex flex-row items-center justify-center mt-4">
+				<img class="max-h-14 object-contain slidePrev-btn" src='{% static "/utils/icons/pointL.png" %}' />
+				<div class="text-center swipPag" style="width: 3.5rem;"></div>
+				<img class="max-h-14 object-contain slideNext-btn" src='{% static "/utils/icons/pointR.png" %}' />
+			</div>
+		</div>
+
+	</section>
+
+	<section class="z-10 w-full mb-12 relative">
+		
+		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
+			<div class="relative flex justify-center items-center h-full w-full mx-auto">
+
+				<div class="z-0 absolute bottom-0 right-36">
+					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}" alt="">
+				</div>
+
+				<div class="mr-44 w-6/12 h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
+					<div class="grid grid-cols-1 content-around h-full text-white ml-16">
+						<h2 class="text-2xl font-medium w-64">Скачайте полную презентацию проекта</h2>
+						<div class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit rounded-2xl">
+							<h2 class="w-48 text-center font-sm text-base leading-5">Скачать презентацию PDF XXX Мб</h2>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+
+		<div class="z-0">
+			<div class="absolute opacity-70 bg-back w-full h-full"></div>
+			<img class="z-0 max-h-500 w-full object-cover" src="{% static '/utils/bg.png' %}" alt="">
+		</div>
+
+	</section>
+
+	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>
+	<script src="{% static '/js/swiper.js' %}" type="application/javascript"></script>
 </body>
 
 </html>
