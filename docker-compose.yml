@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  lweb:
+    build: ./app
+    container_name: lweb
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8081:8080
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - ldb
+
+  ldb:
+    container_name: ldb
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=ldb_usr
+      - POSTGRES_PASSWORD=ldb_usr_pwd
+      - POSTGRES_DB=ldb
+
+
+volumes:
+  postgres_data:

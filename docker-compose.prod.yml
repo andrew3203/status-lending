@@ -1,0 +1,72 @@
+version: '3.8'
+
+services:
+
+  stweb:
+    container_name: stweb
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
+    command: gunicorn status_db.wsgi:application --bind :8088
+    volumes:
+      - static_volume:/home/app/stweb/staticfiles
+      - media_volume:/home/app/stweb/mediafiles
+    expose:
+      - 8088
+    env_file:
+      - ./.env.prod
+
+  stnginx:
+    container_name: stnginx
+    build: ./nginx
+    volumes:
+      - static_volume:/home/app/stweb/staticfiles
+      - media_volume:/home/app/stweb/mediafiles
+    ports:
+      - 8089:8089
+    depends_on:
+      - stweb
+  
+  stdb:
+    container_name: stdb
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    command: -p 5433
+    env_file:
+      - ./.env.prod.db
+  
+  stredis:
+    image: redis:alpine
+    container_name: stredis
+    volumes:
+      - ./redis_data:/data
+    command: --port 6378
+    ports:
+     - '6378:6378'
+  
+  stcelery:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.prod
+    container_name: stcelery
+    command: celery -A status_db worker --loglevel=INFO
+    volumes:
+      - static_volume:/home/app/stweb/staticfiles
+      - media_volume:/home/app/stweb/mediafiles
+    env_file:
+      - ./.env.prod
+    depends_on:
+      - stredis
+      - stweb
+  
+
+networks:
+  default:
+    name: nginxproxymanager_default
+    external: true
+
+volumes:
+  static_volume:
+  media_volume:
+  postgres_data:
