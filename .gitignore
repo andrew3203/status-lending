@@ -133,3 +133,5 @@ venv/
 env
 ven
 
+node_modules
+node_modules/
