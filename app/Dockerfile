@@ -22,6 +22,10 @@ RUN apk add --no-cache libstdc++ && \
     apk add --no-cache g++ && \
     ln -s /usr/include/locale.h /usr/include/xlocale.h
 
+RUN apk add --update nodejs npm \
+    && rm -rf /var/cache/apk/*
+RUN npm install -g nodemon
+
 
 # install dependencies
 RUN pip install --upgrade pip

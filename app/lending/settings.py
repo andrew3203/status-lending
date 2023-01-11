@@ -27,6 +27,10 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 
 ALLOWED_HOSTS = ['*']
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Application definition
 
@@ -43,8 +47,10 @@ INSTALLED_APPS = [
     #'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
     'tailwind',
+    'django_browser_reload',
 
     # local apps
+    'client.apps.ClientConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +64,7 @@ MIDDLEWARE = [
 
     'corsheaders.middleware.CorsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'lending.urls'
@@ -142,6 +149,9 @@ MEDIA_ROOT = BASE_DIR / "mediafiles"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Tailwind
+TAILWIND_APP_NAME = 'client'
 
 
 # CELERY

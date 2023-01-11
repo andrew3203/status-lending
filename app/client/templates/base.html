@@ -1,0 +1,46 @@
+{% load static tailwind_tags %} {% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Django Tailwind</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	{% tailwind_css %}
+</head>
+
+<body class="leading-normal tracking-normal">
+
+	<section class="z-20 fixed top-0 left-0 right-0 container mx-auto">
+		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
+			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
+				<a href="#">
+					<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' /></a>
+			</div>
+			<div class="flex-auto flex flex-row justify-around mx-4">
+				<a href="#">Главная</a>
+				<a href="#">Галерея</a>
+				<a href="#">О проекте</a>
+				<a href="#">Приемущества</a>
+				<a href="#">Расположение</a>
+				<a href="#">Контакты</a>
+			</div>
+			<div class="flex-none flex flex-row items-center gap-1 mr-12">
+				<a href="#"><img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' /></a>
+				<a href="#"><img class="max-h-16 object-contain"
+						src='{% static "/utils/icons/icon_watssup.svg" %}' /></a>
+			</div>
+		</div>
+	</section>
+
+	<section class="z-10 container mx-auto mt-40">
+		<div class="relative">
+			<div class="absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
+			<img class="z-0 rounded-3xl max-h-864 object-cover" src="{% static '/utils/pic.png' %}" alt="">
+		</div>
+
+	</section>
+</body>
+
+</html>
