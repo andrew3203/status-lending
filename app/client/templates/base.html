@@ -13,7 +13,8 @@
 
 <body class="leading-normal tracking-normal">
 
-	<section class="z-20 fixed top-0 left-0 right-0 container mx-auto">
+	<!-- Nav -->
+	<header class="z-20 fixed top-0 left-0 right-0 container mx-auto">
 		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
 				<a href="#">
@@ -37,8 +38,9 @@
 				</a>
 			</div>
 		</div>
-	</section>
+	</header>
 
+	<!-- Main -->
 	<section class="z-10 container mx-auto mt-40">
 		<div class="relative">
 			<div class="absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
@@ -47,6 +49,7 @@
 
 	</section>
 
+	<!-- Photo gelery -->
 	<section class="z-10 container mx-auto mt-12 mb-20">
 
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
@@ -83,6 +86,7 @@
 
 	</section>
 
+	<!-- Get the presentation -->
 	<section class="z-10 w-full mb-12 relative">
 
 		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
@@ -112,6 +116,7 @@
 		</div>
 	</section>
 
+	<!-- Application -->
 	<section class="z-10 container mx-auto my-20">
 		<div class="relative">
 			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
@@ -141,6 +146,7 @@
 		</div>
 	</section>
 
+	<!-- About -->
 	<section class="w-full mb-12">
 		<div class="grid grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-end bg-blue-back">
 
@@ -186,6 +192,7 @@
 		</div>
 	</section>
 
+	<!-- Advanteges -->
 	<section class="z-10 container mx-auto mt-12 mb-20">
 
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
@@ -322,12 +329,68 @@
 					</div>
 					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
 				</div>
-
-
 			</div>
-
 		</div>
 	</section>
+
+	<!-- Map -->
+	<section class="w-full mt-12 ">
+		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
+			<h2 class="text-4xl">Расположение на карте</h2>
+		</div>
+		<script type="text/javascript" charset="utf-8" async
+			src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0c01dfeeabfb8cf4a5568f29fbc43a0aeeb946b5bb2d46e1a5099b6b9f9aec8&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
+	</section>
+
+	<!-- Application 2 -->
+	<section class="w-full">
+		<div class="z-10 absolute w-full h-full max-h-600">
+			<div class="container h-full mx-auto">
+				<div class="flex flex-col h-full justify-center items-center">
+
+					<div class="z-10 w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
+						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto" action="">
+
+							<h2 class="text-white text-2xl font-medium text-center py-8">
+								Оставьте свои координаты<br>и мы свяжемся с вами
+							</h2>
+
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="text" id="name2" name="name" required minlength="4" maxlength="18"
+								placeholder="Имя">
+
+
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
+								placeholder="Телефон">
+
+
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="email" id="email" name="email" required minlength="5" maxlength="20"
+								placeholder="Почта">
+
+							<div class="text-white text-xs text-center my-2">
+								<input type="checkbox" id="policy" name="policy">
+								<label for="policy">Я согласен на обработку моих персональных данных</label>
+							</div>
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2">
+								Отправить
+							</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="z-1 absolute opacity-70 bg-back w-full h-full max-h-600"></div>
+		<img class="z-0 h-full max-h-600 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
+
+	</section>
+
+	<!-- Footer -->
+	<footer>
+
+	</footer>
 
 	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>
 	<script src="{% static '/js/swiper.js' %}" type="application/javascript"></script>
