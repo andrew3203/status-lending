@@ -54,10 +54,14 @@ module.exports = {
         extend: {
             height: {
                 '88': '80px',
+                '600': '600px',
             },
             maxHeight: {
                 '864': '864px',
                 '500': '500px',
+            },
+            minHeight: {
+                '600': '600px',
             },
             borderRadius: {
                 'large': '56px',
@@ -78,6 +82,8 @@ module.exports = {
             },
             colors: {
                 'back': '#231D1C',
+                'blue-back': '#2F364D',
+                'tbrown': '#C0845E'
             },
         },
         

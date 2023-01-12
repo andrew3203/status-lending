@@ -12,3 +12,15 @@ const swiper = new Swiper(".mySwiper", {
     nextEl: '.slideNext-btn'
   },
 });
+
+const swiper2 = new Swiper(".mySwiper2", {
+  slidesPerView: 1,
+  spaceBetween: 30,
+  loop: true,
+  centeredSlides: true,
+  effect: "fade",
+  navigation: {
+    prevEl: '.slidePrev-btn2',
+    nextEl: '.slideNext-btn2'
+  },
+});
