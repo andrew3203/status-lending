@@ -1,15 +1,29 @@
-{% load static tailwind_tags %} 
-{% load static %}
+{% load static tailwind_tags %} {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 
 <head>
-	<title>Django Tailwind</title>
+	<title>{{ object.site.meta_title }}</title>
+	<meta name="keywords" content="{{ object.site.meta_title }}" />
+	<meta name="twitter:site" content="{{ object.site.meta_title }}" />
+	<meta content="{{ object.site.meta_title }}" property="og:title" />
+	<meta content="{{ object.site.meta_description }}" property="og:description" />
+	<meta name="twitter:title" property="og:title" content="{{ object.site.meta_title }}" />
+	<meta content="{{ object.title_image.url }}" property="og:image" />
+	<meta content="{{ object.site.meta_description }}" property="twitter:description" />
+	<meta content="{{ object.title_image.url }}" property="twitter:image" />
+	<meta property="og:type" content="website" />
+	<meta content="{{ object.title_image.url }}" name="twitter:card" />
+	<meta name="description" content="{{ object.site.meta_description }}" />
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link href="{% static '/utils/favicon.png' %}" rel="shortcut icon" type="image/x-icon" />
+	<link href="{% static '/utils/webclip.png' %}" rel="apple-touch-icon" />
+
 	{% tailwind_css %}
 	<link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
+	{{ object.site.scripts | safe }}
 </head>
 
 <body class="leading-normal tracking-normal">
@@ -19,22 +33,22 @@
 		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
 				<a href="#">
-					<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' />
+					<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 				</a>
 			</div>
 			<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
-				<a href="#">Главная</a>
-				<a href="#">Галерея</a>
-				<a href="#">О проекте</a>
-				<a href="#">Приемущества</a>
-				<a href="#">Расположение</a>
-				<a href="#">Контакты</a>
+				<a href="#main">Главная</a>
+				<a href="#gelery">Галерея</a>
+				<a href="#about">О проекте</a>
+				<a href="#advanteges">Приемущества</a>
+				<a href="#location">Расположение</a>
+				<a href="#contacts">Контакты</a>
 			</div>
 			<div class="flex-none flex flex-row items-center gap-1 mr-12">
-				<a href="#">
+				<a href="{{ object.tg_link }}">
 					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
 				</a>
-				<a href="#">
+				<a href="{{ object.wh_link }}">
 					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
 			</div>
@@ -42,49 +56,49 @@
 	</header>
 
 	<!-- Main -->
-	<section class="z-10 container mx-auto mt-40 text-white">
+	<section class="z-10 container mx-auto h-5/6 text-white mt-40" id="main">
 		<div class="relative">
 			<div class="z-10 absolute w-full h-full">
 				<div class="grid grid-cols-2 h-full w-5/6 mx-auto">
 					<div class="w-full h-full flex flex-col justify-items-center justify-around">
 						<div class="font-extralight mt-12">
-							<h1 class="text-2xl">КЛУБНЫЙ ДОМ </h1>
-							<h1 class="text-7xl mt-2 mb-8">QUARTIER D OR</h1>
-							<h2 class="text-lg text-normal">Французские апартаменты в Золотом квадрате Москвы</h2>
+							<h1 class="text-2xl">{{ object.ctype }}</h1>
+							<h1 class="text-7xl mt-2 mb-8">{{ object.name }}</h1>
+							<h2 class="text-lg text-normal">
+								{{ object.short }}
+							</h2>
 						</div>
 
 						<div
 							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown">
-							<h2 class="w-48 text-center font-sm text-base leading-5">Консультация</h2>
+							<h2 class="w-48 text-center font-sm text-base leading-5">
+								Консультация
+							</h2>
 						</div>
-
 					</div>
 					<div class="w-full h-full flex flex-col justify-items-center justify-around">
 						<div class="mt-56"></div>
 						<div
 							class="rounded-xl w-full h-20 grid grid-cols-2 gab-x-4 justify-items-center content-center bg-white/20">
 							<div>
-								<h2 class="text-xl">от 69 - 290 м<sup>2</sup> </h2>
+								<h2 class="text-xl">от {{ object.square }} м<sup>2</sup></h2>
 								<h2 class="text-xs">площадь апартаментов</h2>
 							</div>
 							<div>
-								<h2 class="text-xl">от 2 000 000 ₽</h2>
+								<h2 class="text-xl">от {{ object.formated_price }} ₽</h2>
 								<h2 class="text-xs">за квадратный метр</h2>
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<div class="z-1 absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 rounded-3xl max-h-864 object-cover" src="{% static '/utils/pic.png' %}" alt="">
+			<img class="z-0 rounded-3xl max-h-75h w-full h-auto object-cover" src="{{ object.title_image.url }}" alt="" />
 		</div>
-
 	</section>
 
 	<!-- Photo gelery -->
-	<section class="z-10 container mx-auto mt-12 mb-20">
-
+	<section class="z-10 container mx-auto mt-12 mb-20" id="gelery">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
 			<h2 class="text-4xl">Фотографии проекта</h2>
 		</div>
@@ -92,151 +106,113 @@
 		<!-- Swiper -->
 		<div class="swiper mySwiper">
 			<div class="swiper-wrapper">
+				{% for im in object.images %}
 				<div class="swiper-slide ease-in-out duration-400">
-					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
-						alt="">
+					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{{ im.image.url }}" alt="" />
 				</div>
-				<div class="swiper-slide ease-in-out duration-400">
-					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
-						alt="">
-				</div>
-				<div class="swiper-slide ease-in-out duration-400">
-					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
-						alt="">
-				</div>
-				<div class="swiper-slide ease-in-out duration-400">
-					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
-						alt="">
-				</div>
-
+				{% endfor %}
 			</div>
 			<div class="flex flex-row items-center justify-center mt-4">
 				<img class="max-h-14 object-contain slidePrev-btn" src='{% static "/utils/icons/pointL.png" %}' />
-				<div class="text-center swipPag" style="width: 3.5rem;"></div>
+				<div class="text-center swipPag" style="width: 3.5rem"></div>
 				<img class="max-h-14 object-contain slideNext-btn" src='{% static "/utils/icons/pointR.png" %}' />
 			</div>
 		</div>
-
 	</section>
 
-	<!-- Get the presentation -->
+	<!-- Get the presentation  -->
 	<section class="z-10 w-full mb-12 relative">
-
 		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
 			<div class="relative flex justify-center items-center h-full w-full mx-auto">
-
 				<div class="z-0 absolute bottom-0 right-36">
 					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}"
-						alt="">
+						alt="" />
 				</div>
 
 				<div class="mr-44 w-6/12 h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
 					<div class="grid grid-cols-1 content-around h-full text-white ml-16">
-						<h2 class="text-2xl font-medium w-64">Скачайте полную презентацию проекта</h2>
+						<h2 class="text-2xl font-medium w-64">
+							Скачайте полную презентацию проекта
+						</h2>
 						<div class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit">
-							<h2 class="w-48 text-center font-sm text-base leading-5">Скачать презентацию PDF XXX Мб</h2>
+							<h2 class="w-48 text-center font-sm text-base leading-5">
+								Скачать презентацию PDF XXX Мб
+							</h2>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</div>
 
 		<div class="z-0">
 			<div class="absolute opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 max-h-500 w-full object-cover" src="{% static '/utils/bg.png' %}" alt="">
+			<img class="z-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
-	<!-- Application -->
+	<!-- Application  -->
 	<section class="z-10 container mx-auto my-20">
 		<div class="relative">
 			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
 				<form class="grid grid-cols-3 grid-rows-2 gap-x-4 w-2/3 h-full mx-auto" action="">
 					<div class="col-span-3 flex items-center">
 						<h2 class="text-white text-2xl font-medium">
-							Оставьте свои координаты<br>и мы свяжемся с вами
+							Оставьте свои координаты<br />и мы свяжемся с вами
 						</h2>
 					</div>
 					<div class="flex items-center">
 						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="text"
-							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя">
+							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя" />
 					</div>
 					<div class="flex items-center">
 						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
-							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон">
+							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
 					</div>
 					<div class="flex items-center justify-end">
 						<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0">
 							Отправить
 						</button>
 					</div>
-
 				</form>
 			</div>
-			<img class="z-0 rounded-3xl h-52 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
+			<img class="z-0 rounded-3xl h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
 	<!-- About -->
-	<section class="w-full mb-12">
+	<section class="w-full mb-12" id="about">
 		<div class="grid grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-end bg-blue-back">
-
 			<div class="w-5/6 h-full grid grid-cols-3 gap-2 grid-rows-4 gab-2">
 				<div class="col-span-3 flex items-end">
 					<h2 class="text-white text-2xl font-medium">О проекте</h2>
 				</div>
-				<div class="col-span-3 row-span-2 flex items-center ">
-					<p class="text-white">
-						Французская неоклассика, роскошные фасадыиз натурального камня благородного оттенка, дорогие
-						интерьеры и ландшафт от европейских партнеров Несколько форматов жилья, включая пентхаусы,
-						двухуровневые апартаменты с собственным патио, Garden Villas и апартаменты с отделкой
-						Техническое оснащение комплекса на самом высоком уровне, европейские материалы и оборудование,
-						комплексное управление инженерными системами последнего поколения.
-					</p>
+				<div class="col-span-3 row-span-2 flex items-center text-white">
+					{{ object.desciption | safe }}
 				</div>
+				{% for feature in object.features%}
 				<div class="flex justify-left text-left">
 					<div>
-						<span class="text-tbrown text-3xl">60</span>
-						<h2 class="text-white">Апартаментов</h2>
+						<span class="text-tbrown text-3xl">{{ feature.amount }}</span>
+						<h2 class="text-white">{{ feature.name }}</h2>
 					</div>
-
 				</div>
-				<div class="flex justify-left text-left">
-					<div>
-						<span class="text-tbrown text-3xl">3</span>
-						<h2 class="text-white">Виллы</h2>
-					</div>
-
-				</div>
-				<div class="flex justify-left text-left">
-					<div>
-						<span class="text-tbrown text-3xl">4</span>
-						<h2 class="text-white">Пентхауса</h2>
-					</div>
-
-				</div>
-
+				{% endfor %}
 			</div>
 
-			<img class="w-full h-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
-
+			<img class="w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
 		</div>
 	</section>
 
 	<!-- Advanteges -->
-	<section class="z-10 container mx-auto mt-12 mb-20">
-
+	<section class="z-10 container mx-auto mt-12 mb-20" id="advanteges">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
-			<h2 class="text-4xl">Преимущества Quartier d Qr</h2>
+			<h2 class="text-4xl">Преимущества {{ object.name }}</h2>
 		</div>
 
 		<div class="relative swiper mySwiper2">
 			<div class="z-10 absolute w-full h-full grid grid-cols-6 gap-4 justify-items-center content-center">
-
 				<div class="col-start-1 col-end-2 place-self-end">
-					<img class="max-h-16 object-contain slidePrev-btn2 " src='{% static "/utils/icons/pointL.png" %}' />
+					<img class="max-h-16 object-contain slidePrev-btn2" src='{% static "/utils/icons/pointL.png" %}' />
 				</div>
 
 				<div class="col-end-7 col-span-1 place-self-start">
@@ -245,128 +221,32 @@
 			</div>
 
 			<div class="swiper-wrapper">
+				{% for adv in object.advantages %}
 				<div class="swiper-slide relative ease-in-out duration-200">
 					<div
 						class="absolute rounded-2xl opacity-80 bg-back drop-shadow-md w-full h-full flex justify-center">
 						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
-
 							<div class="flex justify-center space-x-6 content-center">
-								<img class="justify-self-end h-12 w-auto object-contain"
-									src="{% static '/utils/icons/icon_architecture.svg' %}" alt="">
-								<h2 class="justify-self-start text-tbrown text-2xl font-medium my-auto">Архитекрута</h2>
+								<img class="justify-self-end h-12 w-auto object-contain" src="{{ adv.icon_path }}" alt="" />
+								<h2 class="justify-self-start text-tbrown text-2xl font-medium my-auto">
+									{{ adv.name }}
+								</h2>
 							</div>
 
-							<div class="flex items-center ">
-								<p class="text-white">
-									Французская неоклассика, роскошные фасадыиз натурального камня благородного оттенка,
-									дорогие
-									интерьеры и ландшафт от европейских партнеров Несколько форматов жилья, включая
-									пентхаусы,
-									двухуровневые апартаменты с собственным патио, Garden Villas и апартаменты с
-									отделкой
-									Техническое оснащение комплекса на самом высоком уровне, европейские материалы и
-									оборудование,
-									комплексное управление инженерными системами последнего поколения.
-								</p>
+							<div class="flex items-center text-white">
+								{{ adv.desciption | safe }}
 							</div>
-
 						</div>
 					</div>
-					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{% static '/utils/bg.png' %}" alt="">
+					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{{ adv.image.url }}" alt="" />
 				</div>
-				<div class="swiper-slide relative ease-in-out duration-200">
-					<div
-						class="absolute rounded-2xl opacity-80 bg-back drop-shadow-md w-full h-full flex justify-center">
-						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
-
-							<div class="flex justify-center space-x-6 content-center">
-								<img class="justify-self-end h-12 w-auto object-contain"
-									src="{% static '/utils/icons/icon_architecture.svg' %}" alt="">
-								<h2 class="justify-self-start text-tbrown text-2xl font-medium my-auto">Архитекрута</h2>
-							</div>
-
-							<div class="flex items-center ">
-								<p class="text-white">
-									Французская неоклассика, роскошные фасадыиз натурального камня благородного оттенка,
-									дорогие
-									интерьеры и ландшафт от европейских партнеров Несколько форматов жилья, включая
-									пентхаусы,
-									двухуровневые апартаменты с собственным патио, Garden Villas и апартаменты с
-									отделкой
-									Техническое оснащение комплекса на самом высоком уровне, европейские материалы и
-									оборудование,
-									комплексное управление инженерными системами последнего поколения.
-								</p>
-							</div>
-
-						</div>
-					</div>
-					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
-				</div>
-				<div class="swiper-slide relative ease-in-out duration-200">
-					<div
-						class="absolute rounded-2xl opacity-80 bg-back drop-shadow-md w-full h-full flex justify-center">
-						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
-
-							<div class="flex justify-center space-x-6 content-center">
-								<img class="justify-self-end h-12 w-auto object-contain"
-									src="{% static '/utils/icons/icon_architecture.svg' %}" alt="">
-								<h2 class="justify-self-start text-tbrown text-2xl font-medium my-auto">Архитекрута</h2>
-							</div>
-
-							<div class="flex items-center ">
-								<p class="text-white">
-									Французская неоклассика, роскошные фасадыиз натурального камня благородного оттенка,
-									дорогие
-									интерьеры и ландшафт от европейских партнеров Несколько форматов жилья, включая
-									пентхаусы,
-									двухуровневые апартаменты с собственным патио, Garden Villas и апартаменты с
-									отделкой
-									Техническое оснащение комплекса на самом высоком уровне, европейские материалы и
-									оборудование,
-									комплексное управление инженерными системами последнего поколения.
-								</p>
-							</div>
-
-						</div>
-					</div>
-					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{% static '/utils/bg.png' %}" alt="">
-				</div>
-				<div class="swiper-slide relative ease-in-out duration-200">
-					<div
-						class="absolute rounded-2xl opacity-80 bg-back drop-shadow-md w-full h-full flex justify-center">
-						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
-
-							<div class="flex justify-center space-x-6 content-center">
-								<img class="justify-self-end h-12 w-auto object-contain"
-									src="{% static '/utils/icons/icon_architecture.svg' %}" alt="">
-								<h2 class="justify-self-start text-tbrown text-2xl font-medium my-auto">Архитекрута</h2>
-							</div>
-
-							<div class="flex items-center ">
-								<p class="text-white">
-									Французская неоклассика, роскошные фасадыиз натурального камня благородного оттенка,
-									дорогие
-									интерьеры и ландшафт от европейских партнеров Несколько форматов жилья, включая
-									пентхаусы,
-									двухуровневые апартаменты с собственным патио, Garden Villas и апартаменты с
-									отделкой
-									Техническое оснащение комплекса на самом высоком уровне, европейские материалы и
-									оборудование,
-									комплексное управление инженерными системами последнего поколения.
-								</p>
-							</div>
-
-						</div>
-					</div>
-					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</section>
 
 	<!-- Map -->
-	<section class="w-full mt-12 ">
+	<section class="w-full mt-12" id="location">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
 			<h2 class="text-4xl">Расположение на карте</h2>
 		</div>
@@ -379,30 +259,26 @@
 		<div class="z-10 absolute w-full h-full max-h-600">
 			<div class="container h-full mx-auto">
 				<div class="flex flex-col h-full justify-center items-center">
-
 					<div class="z-10 w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
-						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto" action="">
-
+						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto" action="contact">
 							<h2 class="text-white text-2xl font-medium text-center py-8">
-								Оставьте свои координаты<br>и мы свяжемся с вами
+								Оставьте свои координаты<br />и мы свяжемся с вами
 							</h2>
 
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="text" id="name2" name="name" required minlength="4" maxlength="18"
-								placeholder="Имя">
-
+								placeholder="Имя" />
 
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
-								placeholder="Телефон">
-
+								placeholder="Телефон" />
 
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="email" id="email" name="email" required minlength="5" maxlength="20"
-								placeholder="Почта">
+								placeholder="Почта" />
 
 							<div class="text-white text-xs text-center my-2">
-								<input type="checkbox" id="policy" name="policy">
+								<input type="checkbox" id="policy" name="policy" />
 								<label for="policy">Я согласен на обработку моих персональных данных</label>
 							</div>
 							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2">
@@ -410,82 +286,74 @@
 							</button>
 						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>
 		<div class="z-1 absolute opacity-70 bg-back w-full h-full max-h-600"></div>
-		<img class="z-0 h-full max-h-600 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
-
+		<img class="z-0 h-full max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
 	<!-- Footer -->
-	<footer class="w-full h-52 bg-back text-white">
+	<footer class="w-full h-52 bg-back text-white" id="contacts">
 		<div class="container mx-auto h-full flex flex-col justify-around">
-
 			<div class="w-full flex flex-row items-center justify-between mt-4">
 				<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
 					<a href="#">
-						<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' />
+						<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 					</a>
 				</div>
 				<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
-					<a href="#">Главная</a>
-					<a href="#">Галерея</a>
-					<a href="#">О проекте</a>
-					<a href="#">Приемущества</a>
-					<a href="#">Расположение</a>
-					<a href="#">Контакты</a>
+					<a href="#main">Главная</a>
+					<a href="#gelery">Галерея</a>
+					<a href="#about">О проекте</a>
+					<a href="#advanteges">Приемущества</a>
+					<a href="#location">Расположение</a>
+					<a href="#contacts">Контакты</a>
 				</div>
 				<div class="flex-none flex flex-row items-center gap-1 mr-12">
-					<a href="#">
+					<a href="{{ object.tg_link }}">
 						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg_white.svg" %}' />
 					</a>
-					<a href="#">
+					<a href="{{ object.wh_link }}">
 						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup_white.svg" %}' />
 					</a>
 				</div>
 			</div>
 
 			<div class="text-xs ml-12 mr-12">
-				Политика конфиденциальности Сайт носит исключительно информационный характер, и не при каких условиях не
-				является публичной офертой, определяемой положением пункта 2 статьи 437 Гражданского кодекса РФ
+				Политика конфиденциальности Сайт носит исключительно информационный
+				характер, и не при каких условиях не является публичной офертой,
+				определяемой положением пункта 2 статьи 437 Гражданского кодекса РФ
 			</div>
-
 		</div>
-
-
 	</footer>
 
 	<section class="z-20 absolute h-screen w-screen">
 		<div class="z-10 absolute w-full h-full max-h-600 mt-40">
 			<div class="container h-full mx-auto">
 				<div class="flex flex-col h-full justify-center items-center">
-
 					<div class="z-10 w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
 						<form class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto" action="">
-
 							<h2 class="text-white text-base py-8">
-								Хотите узнать подробнее? Оставьте номер и менеджер перезвонит вам в удобное время
+								Хотите узнать подробнее? Оставьте номер и менеджер перезвонит
+								вам в удобное время
 							</h2>
 							<label for="phone2" class="text-sm text-white font-thin">Ваш номер телефона*</label>
 
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
-								placeholder="Телефон">
+								placeholder="Телефон" />
 
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 ">
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4">
 								Отправить
 							</button>
 						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>
 		<div class="z-1 absolute opacity-70 bg-back w-full h-full"></div>
-		<img class="z-0 h-full w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
-
+		<img class="z-0 h-full w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
 	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>

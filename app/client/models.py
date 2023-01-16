@@ -47,12 +47,22 @@ class SiteData(models.Model):
 
 class Complex(models.Model):
     site =models.ForeignKey(
-        Site,
+        SiteData,
         verbose_name='Сайт',
         on_delete=models.SET_NULL, null=True
     )
+    ctype = models.CharField(
+        'Тип ЖК',
+        help_text='Например: Клубный Дом, Жилой Комплекс и тд',
+        max_length=180,
+    )
     name = models.CharField(
         'Название колмплекса',
+        max_length=180,
+    )
+    short = models.CharField(
+        'Краткое описание',
+        help_text='короткая фраза в начале страницы',
         max_length=180,
     )
     slug = models.SlugField(
@@ -64,8 +74,12 @@ class Complex(models.Model):
         help_text='Например: от 200 до 1500',
         max_length=20,
     )
-    price = models.FloatField(
+    price = models.IntegerField(
         'Цена за м2',
+    )
+    logo = models.FileField(
+        'Логотип',
+        upload_to=save_path, null=True
     )
     title_image = models.ImageField(
         "Обложка",
@@ -79,6 +93,10 @@ class Complex(models.Model):
     second_image = models.ImageField(
         'Фото к описанию',
         upload_to=save_path,
+    )
+    bg_image = models.ImageField(
+        'Фото на задний пдан формы',
+        upload_to=save_path, null=True
     )
     desciption = RichTextField(
         'Описание',
@@ -121,13 +139,31 @@ class Complex(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name}'
+    
+    @property
+    def formated_price(self):
+        return '{:,}'.format(self.price).replace(',', ' ')
+    
+    @property
+    def images(self):
+        return Image.objects.filter(complex=self)
+    
+    @property
+    def advantages(self):
+        return Advantage.objects.filter(complex=self)
+    
+    @property
+    def features(self):
+        return Feature.objects.filter(complex=self)
+
+    formated_price.fget.short_description = 'Цена за м2'
 
 
 class AdvantageType(models.TextChoices):
     SECURITY = 'Security', 'Безопасность'
     LAYOUT = 'Layout', 'Планировка'
     INTERIOR = 'Interior', 'Внутренняя отделка'
-    CONCEPT = 'Concept', 'Концепция дома'
+    DECORATION = 'Decoration', 'Концепция дома'
     INFRASTUCTURE = 'Infrastructure', 'Инфраструктура'
     LOCATION = 'Location', 'Расположение'
     ARCHITECTURE = 'Architecture', 'Архитектура'
@@ -160,7 +196,7 @@ class Advantage(models.Model):
     )
 
     @property
-    def image_path(self):
+    def icon_path(self):
         return f'/static/utils/icons/icon_{self.name.lower()}.svg'
     
     class Meta:
@@ -215,7 +251,7 @@ class Image(models.Model):
 class Client(models.Model):
 
     site =models.ForeignKey(
-        Site,
+        SiteData,
         verbose_name='Сайт',
         on_delete=models.SET_NULL, null=True
     )

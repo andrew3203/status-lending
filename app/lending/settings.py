@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'tailwind',
     'django_browser_reload',
     'ckeditor',
+    'django_cleanup.apps.CleanupConfig',
 
     # local apps
     'client.apps.ClientConfig',

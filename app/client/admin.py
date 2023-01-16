@@ -36,11 +36,9 @@ class AdvantageAdminInline(admin.StackedInline):
         })
     ]
 
-
-
 @admin.register(Complex)
 class ComplexAdmin(admin.ModelAdmin):
-    list_display = ['name', 'square', 'price', 'site', 'created_at', 'updated_at']
+    list_display = ['name', 'square', 'formated_price', 'site', 'created_at', 'updated_at']
     search_fields =  ['name', 'square', 'price']
     list_filter = ['is_published', SiteFilter]
     inlines = [
@@ -53,10 +51,13 @@ class ComplexAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Основное', {
             'fields': (
-                ('name', 'square', 'price'),
+                ('ctype', 'name'), 
+                ('square', 'price'),
+                ('short',),
                 ('slug',),
                 ('site', 'is_published', 'private'),
-                ('title_image', 'presentation', 'second_image'),
+                ('logo',),
+                ('title_image', 'presentation', 'second_image', 'bg_image'),
                 ('desciption',),
                 ('map',),
                 ('wh_link', 'tg_link',),
@@ -72,7 +73,6 @@ class ComplexAdmin(admin.ModelAdmin):
 class SiteDataAdmin(admin.ModelAdmin):
     list_display = ['site', 'meta_title', 'created_at',]
     search_fields =  ['site', 'meta_title', 'meta_description']
-    list_filter = [SiteFilter,]
     
     fieldsets = [
         ('Основное', {

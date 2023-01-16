@@ -1,7 +1,7 @@
 from django.views.generic import DetailView
 from django.shortcuts import render
 import json
-from client.models import Complex, Client, Site
+from client.models import Complex, Client, Site, SiteData
 from django.http import JsonResponse, Http404, HttpResponseNotFound
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
@@ -15,7 +15,9 @@ def index(request):
         private = True
     ).first()
     if complex is not None:
-        return render(request, 'base.html', {'object': complex})
+        return render(
+            request, 'base.html', {'object': complex}
+        )
     else:
         return HttpResponseNotFound('Not Found')
 
