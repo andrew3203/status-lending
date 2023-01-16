@@ -1,4 +1,5 @@
-{% load static tailwind_tags %} {% load static %}
+{% load static tailwind_tags %} 
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -14,14 +15,14 @@
 <body class="leading-normal tracking-normal">
 
 	<!-- Nav -->
-	<header class="z-20 fixed top-0 left-0 right-0 container mx-auto">
+	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto">
 		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
 				<a href="#">
 					<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' />
 				</a>
 			</div>
-			<div class="flex-auto flex flex-row justify-around mx-4">
+			<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
 				<a href="#">Главная</a>
 				<a href="#">Галерея</a>
 				<a href="#">О проекте</a>
@@ -31,19 +32,51 @@
 			</div>
 			<div class="flex-none flex flex-row items-center gap-1 mr-12">
 				<a href="#">
-					<img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
+					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
 				</a>
 				<a href="#">
-					<img class="max-h-16 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
+					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
 			</div>
 		</div>
 	</header>
 
 	<!-- Main -->
-	<section class="z-10 container mx-auto mt-40">
+	<section class="z-10 container mx-auto mt-40 text-white">
 		<div class="relative">
-			<div class="absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
+			<div class="z-10 absolute w-full h-full">
+				<div class="grid grid-cols-2 h-full w-5/6 mx-auto">
+					<div class="w-full h-full flex flex-col justify-items-center justify-around">
+						<div class="font-extralight mt-12">
+							<h1 class="text-2xl">КЛУБНЫЙ ДОМ </h1>
+							<h1 class="text-7xl mt-2 mb-8">QUARTIER D OR</h1>
+							<h2 class="text-lg text-normal">Французские апартаменты в Золотом квадрате Москвы</h2>
+						</div>
+
+						<div
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown">
+							<h2 class="w-48 text-center font-sm text-base leading-5">Консультация</h2>
+						</div>
+
+					</div>
+					<div class="w-full h-full flex flex-col justify-items-center justify-around">
+						<div class="mt-56"></div>
+						<div
+							class="rounded-xl w-full h-20 grid grid-cols-2 gab-x-4 justify-items-center content-center bg-white/20">
+							<div>
+								<h2 class="text-xl">от 69 - 290 м<sup>2</sup> </h2>
+								<h2 class="text-xs">площадь апартаментов</h2>
+							</div>
+							<div>
+								<h2 class="text-xl">от 2 000 000 ₽</h2>
+								<h2 class="text-xs">за квадратный метр</h2>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="z-1 absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
 			<img class="z-0 rounded-3xl max-h-864 object-cover" src="{% static '/utils/pic.png' %}" alt="">
 		</div>
 
@@ -59,19 +92,19 @@
 		<!-- Swiper -->
 		<div class="swiper mySwiper">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide">
+				<div class="swiper-slide ease-in-out duration-400">
 					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
 						alt="">
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide ease-in-out duration-400">
 					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
 						alt="">
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide ease-in-out duration-400">
 					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
 						alt="">
 				</div>
-				<div class="swiper-slide">
+				<div class="swiper-slide ease-in-out duration-400">
 					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{% static '/utils/pic.png' %}"
 						alt="">
 				</div>
@@ -120,7 +153,7 @@
 	<section class="z-10 container mx-auto my-20">
 		<div class="relative">
 			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
-				<div class="grid grid-cols-3 grid-rows-2 gap-x-4 w-2/3 h-full mx-auto">
+				<form class="grid grid-cols-3 grid-rows-2 gap-x-4 w-2/3 h-full mx-auto" action="">
 					<div class="col-span-3 flex items-center">
 						<h2 class="text-white text-2xl font-medium">
 							Оставьте свои координаты<br>и мы свяжемся с вами
@@ -140,7 +173,7 @@
 						</button>
 					</div>
 
-				</div>
+				</form>
 			</div>
 			<img class="z-0 rounded-3xl h-52 w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
 		</div>
@@ -199,7 +232,6 @@
 			<h2 class="text-4xl">Преимущества Quartier d Qr</h2>
 		</div>
 
-		<!-- Swiper -->
 		<div class="relative swiper mySwiper2">
 			<div class="z-10 absolute w-full h-full grid grid-cols-6 gap-4 justify-items-center content-center">
 
@@ -388,9 +420,73 @@
 	</section>
 
 	<!-- Footer -->
-	<footer>
+	<footer class="w-full h-52 bg-back text-white">
+		<div class="container mx-auto h-full flex flex-col justify-around">
+
+			<div class="w-full flex flex-row items-center justify-between mt-4">
+				<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
+					<a href="#">
+						<img class="max-h-16 object-contain" src='{% static "/utils/logo.png" %}' />
+					</a>
+				</div>
+				<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
+					<a href="#">Главная</a>
+					<a href="#">Галерея</a>
+					<a href="#">О проекте</a>
+					<a href="#">Приемущества</a>
+					<a href="#">Расположение</a>
+					<a href="#">Контакты</a>
+				</div>
+				<div class="flex-none flex flex-row items-center gap-1 mr-12">
+					<a href="#">
+						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg_white.svg" %}' />
+					</a>
+					<a href="#">
+						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup_white.svg" %}' />
+					</a>
+				</div>
+			</div>
+
+			<div class="text-xs ml-12 mr-12">
+				Политика конфиденциальности Сайт носит исключительно информационный характер, и не при каких условиях не
+				является публичной офертой, определяемой положением пункта 2 статьи 437 Гражданского кодекса РФ
+			</div>
+
+		</div>
+
 
 	</footer>
+
+	<section class="z-20 absolute h-screen w-screen">
+		<div class="z-10 absolute w-full h-full max-h-600 mt-40">
+			<div class="container h-full mx-auto">
+				<div class="flex flex-col h-full justify-center items-center">
+
+					<div class="z-10 w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
+						<form class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto" action="">
+
+							<h2 class="text-white text-base py-8">
+								Хотите узнать подробнее? Оставьте номер и менеджер перезвонит вам в удобное время
+							</h2>
+							<label for="phone2" class="text-sm text-white font-thin">Ваш номер телефона*</label>
+
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
+								placeholder="Телефон">
+
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 ">
+								Отправить
+							</button>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="z-1 absolute opacity-70 bg-back w-full h-full"></div>
+		<img class="z-0 h-full w-full object-cover" src="{% static '/utils/pic.png' %}" alt="">
+
+	</section>
 
 	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>
 	<script src="{% static '/js/swiper.js' %}" type="application/javascript"></script>
