@@ -2,63 +2,39 @@ version: '3.8'
 
 services:
 
-  stweb:
-    container_name: stweb
+  lweb:
+    container_name: lweb
     build:
       context: ./app
       dockerfile: Dockerfile.prod
-    command: gunicorn status_db.wsgi:application --bind :8088
+    command: gunicorn lending.wsgi:application --bind :8078
     volumes:
       - static_volume:/home/app/stweb/staticfiles
       - media_volume:/home/app/stweb/mediafiles
     expose:
-      - 8088
+      - 8078
     env_file:
       - ./.env.prod
 
-  stnginx:
-    container_name: stnginx
+  lnginx:
+    container_name: lnginx
     build: ./nginx
     volumes:
       - static_volume:/home/app/stweb/staticfiles
       - media_volume:/home/app/stweb/mediafiles
     ports:
-      - 8089:8089
+      - 8079:8079
     depends_on:
-      - stweb
+      - lweb
   
-  stdb:
-    container_name: stdb
+  ldb:
+    container_name: ldb
     image: postgres:13.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    command: -p 5433
+    command: -p 5435
     env_file:
       - ./.env.prod.db
-  
-  stredis:
-    image: redis:alpine
-    container_name: stredis
-    volumes:
-      - ./redis_data:/data
-    command: --port 6378
-    ports:
-     - '6378:6378'
-  
-  stcelery:
-    build:
-      context: ./app
-      dockerfile: Dockerfile.prod
-    container_name: stcelery
-    command: celery -A status_db worker --loglevel=INFO
-    volumes:
-      - static_volume:/home/app/stweb/staticfiles
-      - media_volume:/home/app/stweb/mediafiles
-    env_file:
-      - ./.env.prod
-    depends_on:
-      - stredis
-      - stweb
   
 
 networks:
