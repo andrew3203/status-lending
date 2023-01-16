@@ -140,6 +140,11 @@ class Advantage(models.Model):
         'Описание',
         max_length=900,
     )
+    image = models.ImageField(
+        "Фотография",
+        help_text='Фотография на задний фон',
+        upload_to=save_path,
+    )
     complex =models.ForeignKey(
         Complex,
         verbose_name='Комплекс',

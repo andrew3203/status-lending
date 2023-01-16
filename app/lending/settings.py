@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'tailwind',
     'django_browser_reload',
+    'ckeditor',
 
     # local apps
     'client.apps.ClientConfig',
@@ -143,6 +144,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"

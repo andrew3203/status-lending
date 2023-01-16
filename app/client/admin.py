@@ -17,11 +17,37 @@ class SiteFilter(admin.SimpleListFilter):
             return queryset
 
 
+class ImageAdminInline(admin.TabularInline):
+    model = Image
+
+
+class FeatureAdminInline(admin.TabularInline):
+    model = Feature
+
+
+class AdvantageAdminInline(admin.StackedInline):
+    model = Advantage
+    fieldsets = [
+        ('', {
+           'fields': (
+            ('name', 'image'),
+            ('desciption',)
+           )
+        })
+    ]
+
+
+
 @admin.register(Complex)
 class ComplexAdmin(admin.ModelAdmin):
     list_display = ['name', 'square', 'price', 'site', 'created_at', 'updated_at']
     search_fields =  ['name', 'square', 'price']
     list_filter = ['is_published', SiteFilter]
+    inlines = [
+        FeatureAdminInline,
+        ImageAdminInline,
+        AdvantageAdminInline
+    ]
     
     fieldsets = [
         ('Основное', {
@@ -38,3 +64,43 @@ class ComplexAdmin(admin.ModelAdmin):
         )
     ]
     readonly_fields = ['created_at', 'updated_at']
+
+
+@admin.register(SiteData)
+class SiteDataAdmin(admin.ModelAdmin):
+    list_display = ['site', 'meta_title', 'created_at',]
+    search_fields =  ['site', 'meta_title', 'meta_description']
+    list_filter = [SiteFilter,]
+    
+    fieldsets = [
+        ('Основное', {
+            'fields': (
+                ('site',),
+                ('meta_title',),
+                ('meta_description',),
+                ('scripts',),
+                ('created_at',),
+                ),
+            }
+        )
+    ]
+    readonly_fields = ['created_at',]
+
+
+@admin.register(Client)
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ['site', 'name', 'phone', 'email', 'created_at']
+    search_fields =  ['site', 'name', 'phone', 'email']
+    list_filter = [SiteFilter,]
+    
+    fieldsets = [
+        ('Основное', {
+            'fields': (
+                ('site',),
+                ('name', 'phone', 'email'),
+                ('created_at',),
+                ),
+            }
+        )
+    ]
+    readonly_fields = ['created_at',]
