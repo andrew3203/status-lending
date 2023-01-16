@@ -62,6 +62,9 @@ module.exports = {
                 '75h': '75vh',
                 '500': '500px',
             },
+            maxWidth: {
+                '2/3': '66%',
+            },
             minHeight: {
                 '600': '600px',
             },
@@ -75,6 +78,9 @@ module.exports = {
             dropShadow: {
                 'ssl': '0px 4px 15px rgba(0, 0, 0, 0.25)',
                 
+            },
+            marginLeft: {
+                '1/3': '33%',
             },
             fontSize: {
                 'h': ['20px', {
