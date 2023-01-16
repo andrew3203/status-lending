@@ -29,14 +29,14 @@
 <body class="leading-normal tracking-normal">
 
 	<!-- Nav -->
-	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto">
-		<div class="flex flex-row items-center justify-between mt-8 h-88 bg-white rounded-large shadow-ssl">
-			<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
+	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto md:py-4">
+		<div class="flex flex-row items-center justify-between md:mt-8 h-88 py-5 md:py-0 bg-white md:rounded-large md:shadow-ssl">
+			<div class="flex-none flex items-center w-32 h-8 ml-4 md:ml-12 gap-x-1">
 				<a href="#">
 					<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 				</a>
 			</div>
-			<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
+			<div class="hidden flex-auto flex flex-row justify-around mx-4 text-sm">
 				<a href="#main">Главная</a>
 				<a href="#gelery">Галерея</a>
 				<a href="#about">О проекте</a>
@@ -44,55 +44,56 @@
 				<a href="#location">Расположение</a>
 				<a href="#contacts">Контакты</a>
 			</div>
-			<div class="flex-none flex flex-row items-center gap-1 mr-12">
+			<div class="flex-none flex flex-row items-center gap-4 md:gap-1 mr-4 md:mr-12">
 				<a href="{{ object.tg_link }}">
-					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
+					<img class="max-h-10 object-contain" src='{% static "/utils/icons/icon_tg.svg" %}' />
 				</a>
 				<a href="{{ object.wh_link }}">
-					<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
+					<img class="max-h-10 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
+				<button class="md:hidden">
+					<img class="max-h-12 object-contain" src="{% static '/utils/icons/icon_menu.svg' %}" alt="">
+				</button>
 			</div>
 		</div>
 	</header>
 
 	<!-- Main -->
-	<section class="z-10 container mx-auto h-5/6 text-white mt-40" id="main">
+	<section class="z-10 container mx-auto h-5/6 text-white mt-20 md:mt-40" id="main">
 		<div class="relative">
 			<div class="z-10 absolute w-full h-full">
-				<div class="grid grid-cols-2 h-full w-5/6 mx-auto">
-					<div class="w-full h-full flex flex-col justify-items-center justify-around">
-						<div class="font-extralight mt-12">
-							<h1 class="text-2xl">{{ object.ctype }}</h1>
-							<h1 class="text-7xl mt-2 mb-8">{{ object.name }}</h1>
-							<h2 class="text-lg text-normal">
-								{{ object.short }}
-							</h2>
-						</div>
-
-						<div class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-full content-around mx-auto w-full: w-4/5">
+					<div class="col-span-1 md:col-span-2 font-extralight mt-6 md:mt-12">
+						<h1 class="text-xl md: text-2xl">{{ object.ctype }}</h1>
+						<h1 class="text-5xl md: text-7xl mt-2 mb-8">{{ object.name }}</h1>
+						<h2 class="text-md md:text-lg text-normal ">
+							{{ object.short }}
+						</h2>
+					</div>
+					<div class="mx-auto md:mx-0 order-last md:order-none ">
+						<div
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer">
 							<h2 class="w-48 text-center font-sm text-base leading-5">
 								Консультация
 							</h2>
 						</div>
 					</div>
-					<div class="w-full h-full flex flex-col justify-items-center justify-around">
-						<div class="mt-56"></div>
-						<div
-							class="rounded-xl w-full h-20 grid grid-cols-2 gab-x-4 justify-items-center content-center bg-white/20">
-							<div>
-								<h2 class="text-xl">от {{ object.square }} м<sup>2</sup></h2>
-								<h2 class="text-xs">площадь апартаментов</h2>
-							</div>
-							<div>
-								<h2 class="text-xl">от {{ object.formated_price }} ₽</h2>
-								<h2 class="text-xs">за квадратный метр</h2>
-							</div>
+					<div
+						class="rounded-xl h-20 grid grid-cols-2 gab-x-4 justify-items-center content-center bg-white/20">
+						<div>
+							<h2 class="text-xl">от {{ object.square }} м<sup>2</sup></h2>
+							<h2 class="text-xs">площадь апартаментов</h2>
+						</div>
+						<div>
+							<h2 class="text-xl">от {{ object.formated_price }} ₽</h2>
+							<h2 class="text-xs">за квадратный метр</h2>
 						</div>
 					</div>
+
 				</div>
 			</div>
-			<div class="z-1 absolute rounded-3xl opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 rounded-3xl max-h-75h w-full h-auto object-cover" src="{{ object.title_image.url }}"
+			<div class="z-1 absolute md:rounded-3xl opacity-70 bg-back w-full h-full"></div>
+			<img class="z-0 md:rounded-3xl h-80h md:max-h-75h w-full object-cover" src="{{ object.title_image.url }}"
 				alt="" />
 		</div>
 	</section>
@@ -124,17 +125,18 @@
 	<section class="z-10 w-full mb-12 relative">
 		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
 			<div class="relative flex justify-center items-center h-full w-full mx-auto">
-				<div class="z-0 absolute bottom-0 right-36">
+				<div class="hidden z-0 absolute bottom-0 right-36">
 					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}"
 						alt="" />
 				</div>
 
-				<div class="mr-44 w-6/12 h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
-					<div class="grid grid-cols-1 content-around h-full text-white ml-16">
+				<div class="md:mr-44 md:w-6/12 md:h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
+					<div class="grid grid-cols-1 content-around gap-6 md:gap-1 h-full text-white text-center md:text-left m-10 md:m-0 md:ml-16">
 						<h2 class="text-2xl font-medium w-64">
 							Скачайте полную презентацию проекта
 						</h2>
-						<div class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer">
+						<div
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer">
 							<h2 class="w-48 text-center font-sm text-base leading-5">
 								Скачать презентацию PDF XXX Мб
 							</h2>
@@ -146,16 +148,16 @@
 
 		<div class="z-0">
 			<div class="absolute opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+			<img class="z-0 min-h-60h max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
 	<!-- Application  -->
 	<section class="z-10 container mx-auto my-20">
-		<div class="relative">
+		<div class="relative mx-2 md:mx-0">
 			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
-				<form class="grid grid-cols-3 grid-rows-2 gap-x-4 w-2/3 h-full mx-auto" action="">
-					<div class="col-span-3 flex items-center">
+				<form class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto" action="">
+					<div class="md:col-span-3 flex items-center">
 						<h2 class="text-white text-2xl font-medium">
 							Оставьте свои координаты<br />и мы свяжемся с вами
 						</h2>
@@ -168,21 +170,21 @@
 						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
 							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
 					</div>
-					<div class="flex items-center justify-end">
+					<div class="flex items-center justify-center md:justify-end">
 						<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0">
 							Отправить
 						</button>
 					</div>
 				</form>
 			</div>
-			<img class="z-0 rounded-3xl h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+			<img class="z-0 rounded-3xl min-h-60h md:h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
-		<div class="grid grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-end bg-blue-back">
-			<div class="w-5/6 h-full grid grid-cols-3 gap-2 grid-rows-4 gab-2">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-center px-4 md:px-0 md:justify-items-end bg-blue-back">
+			<div class="w-full md:w-5/6 h-full grid grid-cols-3 gap-2 grid-rows-4 gab-2">
 				<div class="col-span-3 flex items-end">
 					<h2 class="text-white text-2xl font-medium">О проекте</h2>
 				</div>
@@ -199,7 +201,7 @@
 				{% endfor %}
 			</div>
 
-			<img class="w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
+			<img class="hidden w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
 		</div>
 	</section>
 
@@ -210,12 +212,12 @@
 		</div>
 
 		<div class="relative swiper mySwiper2">
-			<div class="z-10 absolute w-full h-full grid grid-cols-6 gap-4 justify-items-center content-center">
-				<div class="col-start-1 col-end-2 place-self-end">
+			<div class="z-10 md:absolute w-full md:h-full grid grid-cols-2 md:grid-cols-6 gap-4 justify-items-center content-center">
+				<div class="md:col-start-1 md:col-end-2 place-self-end">
 					<img class="max-h-16 object-contain slidePrev-btn2" src='{% static "/utils/icons/pointL.png" %}' />
 				</div>
 
-				<div class="col-end-7 col-span-1 place-self-start">
+				<div class="md:col-end-7 md:col-span-1 place-self-start">
 					<img class="max-h-16 object-contain slideNext-btn2" src='{% static "/utils/icons/pointR.png" %}' />
 				</div>
 			</div>
@@ -224,7 +226,7 @@
 				{% for adv in object.advantages %}
 				<div class="swiper-slide relative ease-in-out duration-200">
 					<div
-						class="absolute rounded-2xl opacity-80 bg-back drop-shadow-md w-full h-full flex justify-center">
+						class="absolute md:rounded-2xl opacity-80 bg-back md:drop-shadow-md w-full h-full flex justify-center">
 						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
 							<div class="flex justify-center space-x-6 content-center">
 								<img class="justify-self-end h-12 w-auto object-contain" src="{{ adv.icon_path }}"
@@ -234,12 +236,12 @@
 								</h2>
 							</div>
 
-							<div class="flex items-center text-white">
+							<div class="text-white">
 								{{ adv.desciption | safe }}
 							</div>
 						</div>
 					</div>
-					<img class="z-0 rounded-2xl h-600 w-full object-cover" src="{{ adv.image.url }}" alt="" />
+					<img class="z-0 rounded-2xl min-h-60h md:h-600 w-full object-cover" src="{{ adv.image.url }}" alt="" />
 				</div>
 				{% endfor %}
 			</div>
@@ -257,10 +259,10 @@
 
 	<!-- Application 2 -->
 	<section class="w-full">
-		<div class="z-10 absolute w-full h-full max-h-600">
-			<div class="container h-full mx-auto">
+		<div class="z-10 absolute w-full md:h-full md:max-h-600">
+			<div class="container md:h-full mx-auto">
 				<div class="flex flex-col h-full justify-center items-center">
-					<div class="z-10 w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
+					<div class="z-10 w-full my-4 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
 						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
 							action="contact">
 							<h2 class="text-white text-2xl font-medium text-center py-8">
@@ -291,20 +293,22 @@
 				</div>
 			</div>
 		</div>
-		<div class="z-1 absolute opacity-70 bg-back w-full h-full max-h-600"></div>
-		<img class="z-0 h-full max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-70h md:max-h-600"></div>
+		<img class="z-0 md:h-full min-h-70h md:max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
 	<!-- Footer -->
-	<footer class="w-full h-52 bg-back text-white" id="contacts">
+	<footer class="w-full md:my-0 min-h-52 md:h-52 bg-back text-white" id="contacts">
 		<div class="container mx-auto h-full flex flex-col justify-around">
-			<div class="w-full flex flex-row items-center justify-between mt-4">
-				<div class="flex-none flex items-center w-32 h-8 ml-12 gap-x-1">
+			<div class="w-full grid grid-cols-2 gap-y-6 md:flex md:flex-row md:items-center justify-between mt-4">
+				
+				<div class="flex-none flex items-center w-32 h-8 ml-3 md:ml-12 gap-x-1">
 					<a href="#main" class="m-invert">
 						<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 					</a>
 				</div>
-				<div class="flex-auto flex flex-row justify-around mx-4 text-sm">
+
+				<div class="order-3 col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 w-full md:flex-auto md:flex flex-row md:justify-around mx-4 text-sm">
 					<a href="#main">Главная</a>
 					<a href="#gelery">Галерея</a>
 					<a href="#about">О проекте</a>
@@ -312,7 +316,8 @@
 					<a href="#location">Расположение</a>
 					<a href="#contacts">Контакты</a>
 				</div>
-				<div class="flex-none flex flex-row items-center gap-1 mr-12">
+
+				<div class="order-2 flex flex-row items-center gap-1 mr-12">
 					<a href="{{ object.tg_link }}">
 						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg_white.svg" %}' />
 					</a>
@@ -322,7 +327,7 @@
 				</div>
 			</div>
 
-			<div class="text-xs ml-12 mr-12">
+			<div class="col-span-2 text-xs ml-3 md:ml-12 mr-12 my-4 md:my-0">
 				Политика конфиденциальности Сайт носит исключительно информационный
 				характер, и не при каких условиях не является публичной офертой,
 				определяемой положением пункта 2 статьи 437 Гражданского кодекса РФ

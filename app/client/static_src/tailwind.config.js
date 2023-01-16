@@ -62,11 +62,16 @@ module.exports = {
                 '75h': '75vh',
                 '500': '500px',
             },
+            height: {
+                '80h': '80vh',
+            },
             maxWidth: {
                 '2/3': '66%',
             },
             minHeight: {
                 '600': '600px',
+                '60h': '60vh',
+                '70h': '70vh',
             },
             borderRadius: {
                 'large': '56px',
