@@ -48,12 +48,14 @@ class ComplexAdmin(admin.ModelAdmin):
         ImageAdminInline,
         AdvantageAdminInline
     ]
+    prepopulated_fields = {"slug": ["name",]}
     
     fieldsets = [
         ('Основное', {
             'fields': (
                 ('name', 'square', 'price'),
-                ('site', 'is_published'),
+                ('slug',),
+                ('site', 'is_published', 'private'),
                 ('title_image', 'presentation', 'second_image'),
                 ('desciption',),
                 ('map',),

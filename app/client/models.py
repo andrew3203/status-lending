@@ -55,6 +55,10 @@ class Complex(models.Model):
         'Название колмплекса',
         max_length=180,
     )
+    slug = models.SlugField(
+        'Название страницы (латиницей)',
+        max_length=180
+    )
     square = models.CharField(
         'Доступная площядь',
         help_text='Например: от 200 до 1500',
@@ -87,6 +91,10 @@ class Complex(models.Model):
     is_published = models.BooleanField(
         'Опубликован',
         default=True, blank=True
+    )
+    private = models.BooleanField(
+        'Отобразить как отдельный сайт',
+        default=False, blank=True
     )
 
     wh_link = models.CharField(
