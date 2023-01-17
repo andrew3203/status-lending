@@ -11,17 +11,19 @@ from django.conf import settings
 # Create your views here.
  
 def index(request):
-    complex  = Complex.objects.filter(
-        site = Site.objects.get_current(),
-        is_published = True,
-        private = True
-    ).first()
-    if complex is not None:
-        return render(
-            request, 'base.html', {'object': complex}
+    st = SiteData.objects.filter(site=Site.objects.get_current()).first()
+    if st is not None:
+        complex  = Complex.objects.filter(
+            site = st,
+            is_published = True,
+            private = True
+        ).first()
+        if complex is not None:
+            return render(
+                request, 'base.html', {'object': complex}
         )
-    else:
-        return HttpResponseNotFound('Not Found')
+
+    return HttpResponseNotFound('Not Found')
 
 
 class ComplexDetailView(DetailView):
