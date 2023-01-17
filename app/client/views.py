@@ -1,9 +1,11 @@
 from django.views.generic import DetailView
 from django.shortcuts import render
-import json
+from client import serializers
+from rest_framework import generics
 from client.models import Complex, Client, Site, SiteData
-from django.http import JsonResponse, Http404, HttpResponseNotFound
-from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseNotFound
+from rest_framework.response import Response
+from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.
@@ -29,25 +31,25 @@ class ComplexDetailView(DetailView):
     def get_queryset(self):
         return super().get_queryset().filter(is_published=True, private=False)
 
-@csrf_exempt
-def contact(request):
-    if request.POST:
-        complex = Complex.objects.filter(pk=request.POST.get('complex_pk', 1)).first()
-        Client.objects.create(
-            name=request.POST.get('name', 'Запрос на рассылку'),
-            email=request.POST.get('email', 'default@gmail.ru'),
-            phone=request.POST.get('tel', '+00000000000'),
-            complx=complex,
-            site=Site.objects.get_current()
-        ).save()
-        message = f"\nНовый контакт {complex}\n\nИмя: {request.POST['name']}\nПочта: {request.POST['email']}\nТелефон: {request.POST['tel']}\nЖК: {complex}"
-        send_mail(
-            subject=f'Новый контакт {str(complex).upper()}', 
-            message=message,
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=settings.RECIPIENT_ADDRESS,
-        )
-            
-        return JsonResponse({'status': 'data recived'})
-    else:
-        return JsonResponse({'status': 'data did not saved'})
+
+class ClientCreateAPIView(generics.CreateAPIView):
+    serializer_class = serializers.ClientSerializer
+    queryset = Client.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+       
+        try:
+            serializer.is_valid(raise_exception=True)
+            contact = serializer.save()
+            message = f"\nНовый контакт {contact.complex}\n\nИмя: {contact.name}\nПочта: {contact.email}\nТелефон: {contact.phone}\nЖК: {contact.complex}"
+            send_mail(
+                subject=f'Новый контакт {str(complex).upper()}', 
+                message=message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=settings.RECIPIENT_ADDRESS,
+            )
+        except Exception as e:
+            print(e)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

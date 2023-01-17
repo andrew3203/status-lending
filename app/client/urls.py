@@ -14,10 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from client.views import index, ComplexDetailView, contact
+from client.views import index, ComplexDetailView, ClientCreateAPIView
 
 urlpatterns = [
     path('', index, name='index'),
-    path('api/contact/', contact, name='contact'),
+    path('api/contact/', ClientCreateAPIView.as_view(), name='contact'),
     path('<slug:slug>/', ComplexDetailView.as_view(), name='complex-detail'),
 ]

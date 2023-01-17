@@ -127,7 +127,8 @@
 
 		<div class="z-0">
 			<div class="absolute opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 min-h-60h md:md:min-h-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+			<img class="z-0 min-h-60h md:md:min-h-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}"
+				alt="" />
 		</div>
 	</section>
 
@@ -183,7 +184,9 @@
 	<section class="z-10 container mx-auto my-20">
 		<div class="relative mx-2 md:mx-0">
 			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
-				<form class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto" action="">
+				<form id="f1" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto"
+					action="contact">
+					{% csrf_token %}
 					<div class="md:col-span-3 flex items-center">
 						<h2 class="text-white text-2xl font-medium">
 							Оставьте свои координаты<br />и мы свяжемся с вами
@@ -197,14 +200,27 @@
 						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
 							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
 					</div>
+					<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 					<div class="flex items-center justify-center md:justify-end">
-						<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out duration-300">
+						<button type="submit"
+							class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out duration-300">
 							Отправить
 						</button>
 					</div>
 				</form>
+				<div class="invisible form-done flex flex-col justify-center items-center h-full">
+					<h2 class="text-center text-green-500 px-2">
+						Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
+					</h2>
+				</div>
+				<div class="invisible form-fail flex flex-col justify-center items-center">
+					<h2 class="text-center text-red-500 px-2">
+						Уппссс.. Возникла какая то ошибка
+					</h2>
+				</div>
 			</div>
-			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover"
+				src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
@@ -245,8 +261,8 @@
 							</div>
 						</div>
 					</div>
-					<img class="z-0 md:rounded-2xl min-h-60h md:md:min-h-0 md:h-600 md:max-h-600 w-full object-cover" src="{{ adv.image.url }}"
-						alt="" />
+					<img class="z-0 md:rounded-2xl min-h-60h md:md:min-h-0 md:h-600 md:max-h-600 w-full object-cover"
+						src="{{ adv.image.url }}" alt="" />
 				</div>
 				{% endfor %}
 			</div>
@@ -269,8 +285,9 @@
 				<div class="flex flex-col h-full justify-center items-center px-2.5 md:px-0">
 					<div
 						class="z-10 w-full my-5 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/10">
-						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
+						<form id="f2" class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
 							action="contact">
+							{% csrf_token %}
 							<h2 class="text-white text-2xl font-medium text-center py-8">
 								Оставьте свои координаты<br />и мы свяжемся с вами
 							</h2>
@@ -291,22 +308,36 @@
 								<input type="checkbox" id="policy" name="policy" />
 								<label for="policy">Я согласен на обработку моих персональных данных</label>
 							</div>
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out duration-300">
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
+							<button type="submit"
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out duration-300">
 								Отправить
 							</button>
 						</form>
+						<div class="invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-center text-green-500 px-2">
+								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
+							</h2>
+						</div>
+						<div class="invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-500 px-2">
+								Уппссс.. Возникла какая то ошибка
+							</h2>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-75h md:max-h-600"></div>
-		<img class="z-0 md:h-full min-h-75h md:md:min-h-0 md:max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+		<img class="z-0 md:h-full min-h-75h md:md:min-h-0 md:max-h-600 w-full object-cover"
+			src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
 	<!-- Footer -->
 	<footer class="w-full md:my-0 min-h-52 md:h-52 bg-back text-white" id="contacts">
 		<div class="container mx-auto h-full flex flex-col justify-around">
-			<div class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-8">
+			<div
+				class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-8">
 
 				<div class="flex-none flex items-center w-32 h-8 md:ml-12 gap-x-1">
 					<a href="#main" class="m-invert">
@@ -354,8 +385,11 @@
 						</div>
 
 					</div>
-					<div class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
-						<form class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto" action="">
+					<div
+						class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
+						<form id="f3" class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto"
+							action="contact">
+							{% csrf_token %}
 							<h2 class="text-white text-base py-8">
 								Хотите узнать подробнее? Оставьте номер и менеджер перезвонит
 								вам в удобное время
@@ -365,14 +399,24 @@
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
 								placeholder="Телефон" />
-
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
+							<button type="submit"
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
 								Отправить
 							</button>
 							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
 								данных</span>
 						</form>
-
+						<div class="invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-center text-green-500 px-2">
+								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
+							</h2>
+						</div>
+						<div class="invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-500 px-2">
+								Уппссс.. Возникла какая то ошибка
+							</h2>
+						</div>
 					</div>
 				</div>
 				<a class="absolute top-0 right-0 mr-2 mt-2 close-btn cursor-pointer" href="#">
@@ -396,8 +440,11 @@
 						</div>
 
 					</div>
-					<div class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
-						<form class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto" action="">
+					<div
+						class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
+						<form id="f4" class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto"
+							action="contact">
+							{% csrf_token %}
 							<h2 class="text-white text-base py-8">
 								Скачать полную презентацию проекта? Оставьте нам свою почту и менеджер отправит
 								вам презентацию!
@@ -407,13 +454,25 @@
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="email" id="email3" name="email" required minlength="4" maxlength="30"
 								placeholder="Почта" />
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
+							<button type="submit"
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
 								Отправить
 							</button>
 							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
 								данных</span>
 						</form>
+						<div class="invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-cente text-green-500 px-2">
+								Ваша заявка принята!<br><br>В скором времени мы вышлем Вам презентацию!
+							</h2>
+						</div>
+						<div class="invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-500 px-2">
+								Уппссс.. Возникла какая то ошибка
+							</h2>
+						</div>
 
 					</div>
 				</div>

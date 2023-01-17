@@ -23,6 +23,7 @@ django-cleanup
 flashtext
 cyrtranslit
 django-ckeditor
+djangorestframework==3.13.1
 
 # Server
 gunicorn==20.1.0

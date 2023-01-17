@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'ckeditor',
     'django_cleanup.apps.CleanupConfig',
+    'rest_framework',
 
     # local apps
     'client.apps.ClientConfig',
