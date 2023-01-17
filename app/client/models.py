@@ -250,7 +250,7 @@ class Image(models.Model):
 
 class Client(models.Model):
 
-    site =models.ForeignKey(
+    site = models.ForeignKey(
         SiteData,
         verbose_name='Сайт',
         on_delete=models.SET_NULL, null=True

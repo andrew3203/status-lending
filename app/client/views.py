@@ -46,9 +46,9 @@ class ClientCreateAPIView(generics.CreateAPIView):
         try:
             serializer.is_valid(raise_exception=True)
             contact = serializer.save()
-            message = f"\nНовый контакт {contact.complex}\n\nИмя: {contact.name}\nПочта: {contact.email}\nТелефон: {contact.phone}\nЖК: {contact.complex}"
+            message = f"\nНовый контакт {contact.site}\n\nИмя: {contact.name}\nПочта: {contact.email}\nТелефон: {contact.phone}\nЖК: {contact.site}"
             send_mail(
-                subject=f'Новый контакт {str(complex).upper()}', 
+                subject=f'Новый контакт {str(contact.site).upper()}', 
                 message=message,
                 from_email=settings.EMAIL_HOST_USER,
                 recipient_list=settings.RECIPIENT_ADDRESS,
