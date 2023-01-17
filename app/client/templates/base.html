@@ -100,7 +100,7 @@
 	</section>
 
 	<!-- Photo gelery -->
-	<section class="z-10 container mx-auto mt-12 mb-20" id="gelery">
+	<section class="z-10 container mx-auto mt-12 mb-20 px-2 md:px-0" id="gelery">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
 			<h2 class="text-4xl">Фотографии проекта</h2>
 		</div>
@@ -186,16 +186,16 @@
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
 		<div
-			class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-center px-4 md:px-0 md:justify-items-end bg-blue-back">
-			<div class="w-full md:w-5/6 h-full grid grid-cols-3 gap-2 grid-rows-4 gab-2">
+			class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 h-min justify-items-center px-2 md:px-0 md:justify-items-end bg-blue-back">
+			<div class="w-full md:w-5/6 h-full grid grid-cols-3 gap-1 md:gap-2 grid-rows-4">
 				<div class="col-span-3 flex items-end">
-					<h2 class="text-white text-2xl font-medium">О проекте</h2>
+					<h2 class="text-white text-3xl font-medium my-1">О проекте</h2>
 				</div>
 				<div class="col-span-3 row-span-2 flex items-center text-white">
 					{{ object.desciption | safe }}
 				</div>
 				{% for feature in object.features%}
-				<div class="flex justify-left text-left">
+				<div class="flex justify-left text-left my-2">
 					<div>
 						<span class="text-tbrown text-3xl">{{ feature.amount }}</span>
 						<h2 class="text-white">{{ feature.name }}</h2>
@@ -204,14 +204,14 @@
 				{% endfor %}
 			</div>
 
-			<img class="invisible md:visible w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
+			<img class="hidden md:block w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
 		</div>
 	</section>
 
 	<!-- Advanteges -->
 	<section class="z-10 container mx-auto mt-12 mb-20" id="advanteges">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
-			<h2 class="text-4xl">Преимущества {{ object.name }}</h2>
+			<h2 class="text-4xl text-center">Преимущества {{ object.name }}</h2>
 		</div>
 
 		<div class="relative swiper mySwiper2">
@@ -231,7 +231,7 @@
 				<div class="swiper-slide relative ease-in-out duration-200">
 					<div
 						class="absolute md:rounded-2xl opacity-80 bg-back md:drop-shadow-md w-full h-full flex justify-center">
-						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl">
+						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl mx-2">
 							<div class="flex justify-center space-x-6 content-center">
 								<img class="justify-self-end h-12 w-auto object-contain" src="{{ adv.icon_path }}"
 									alt="" />
@@ -245,7 +245,7 @@
 							</div>
 						</div>
 					</div>
-					<img class="z-0 rounded-2xl min-h-60h md:h-600 w-full object-cover" src="{{ adv.image.url }}"
+					<img class="z-0 md:rounded-2xl min-h-60h md:h-600 w-full object-cover" src="{{ adv.image.url }}"
 						alt="" />
 				</div>
 				{% endfor %}
@@ -255,20 +255,20 @@
 
 	<!-- Map -->
 	<section class="w-full mt-12" id="location">
-		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
-			<h2 class="text-4xl">Расположение на карте</h2>
+		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8 px-2 md:px-0">
+			<h2 class="text-4xl text-center">Расположение на карте</h2>
 		</div>
 		<script type="text/javascript" charset="utf-8" async
-			src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0c01dfeeabfb8cf4a5568f29fbc43a0aeeb946b5bb2d46e1a5099b6b9f9aec8&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
+			src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0c01dfeeabfb8cf4a5568f29fbc43a0aeeb946b5bb2d46e1a5099b6b9f9aec8&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
 	</section>
 
 	<!-- Application 2 -->
 	<section class="w-full">
 		<div class="z-10 absolute w-full md:h-full md:max-h-600">
 			<div class="container md:h-full mx-auto">
-				<div class="flex flex-col h-full justify-center items-center">
+				<div class="flex flex-col h-full justify-center items-center px-2.5 md:px-0">
 					<div
-						class="z-10 w-full my-4 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
+						class="z-10 w-full my-5 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/10">
 						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
 							action="contact">
 							<h2 class="text-white text-2xl font-medium text-center py-8">
@@ -299,14 +299,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-70h md:max-h-600"></div>
-		<img class="z-0 md:h-full min-h-70h md:max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-75h md:max-h-600"></div>
+		<img class="z-0 md:h-full min-h-75h md:max-h-600 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
 	<!-- Footer -->
 	<footer class="w-full md:my-0 min-h-52 md:h-52 bg-back text-white" id="contacts">
 		<div class="container mx-auto h-full flex flex-col justify-around">
-			<div class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-4">
+			<div class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-8">
 
 				<div class="flex-none flex items-center w-32 h-8 md:ml-12 gap-x-1">
 					<a href="#main" class="m-invert">
