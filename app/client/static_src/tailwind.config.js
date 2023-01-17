@@ -53,7 +53,7 @@ module.exports = {
     theme: {
         extend: {
             height: {
-                '88': '80px',
+                '88': '88px',
                 '600': '600px',
             },
             maxHeight: {

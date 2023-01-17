@@ -23,21 +23,21 @@
 
 	{% tailwind_css %}
 	<link rel="stylesheet" href="{% static '/css/swiper-bundle.min.css' %}" />
-	<link rel="stylesheet" href="{% static '/css/styles.css' %}" />
 	{{ object.site.scripts | safe }}
 </head>
 
-<body class="leading-normal tracking-normal">
+<body class="leading-normal tracking-normal overflow-x-hidden">
 
 	<!-- Nav -->
 	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto md:py-4">
-		<div class="flex flex-row items-center justify-between md:mt-8 h-88 py-5 md:py-0 bg-white md:rounded-large md:shadow-ssl">
+		<div
+			class="flex flex-row items-center justify-between h-20 md:mt-8 py-5 md:py-0 bg-white md:rounded-large md:shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-4 md:ml-12 gap-x-1">
 				<a href="#">
 					<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 				</a>
 			</div>
-			<div class="hidden flex-auto flex flex-row justify-around mx-4 text-sm">
+			<div class="hidden md:flex flex-auto flex-row justify-around mx-4 text-sm">
 				<a href="#main">Главная</a>
 				<a href="#gelery">Галерея</a>
 				<a href="#about">О проекте</a>
@@ -52,7 +52,7 @@
 				<a href="{{ object.wh_link }}">
 					<img class="max-h-10 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
-				<button class="md:hidden">
+				<button class="visible md:invisible">
 					<img class="max-h-12 object-contain" src="{% static '/utils/icons/icon_menu.svg' %}" alt="">
 				</button>
 			</div>
@@ -126,13 +126,14 @@
 	<section class="z-10 w-full mb-12 relative">
 		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
 			<div class="relative flex justify-center items-center h-full w-full mx-auto">
-				<div class="hidden z-0 absolute bottom-0 right-36">
+				<div class="invisible md:visible z-0 absolute bottom-0 right-36">
 					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}"
 						alt="" />
 				</div>
 
 				<div class="md:mr-44 md:w-6/12 md:h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
-					<div class="grid grid-cols-1 content-around gap-6 md:gap-1 h-full text-white text-center md:text-left m-10 md:m-0 md:ml-16">
+					<div
+						class="grid grid-cols-1 content-around gap-6 md:gap-1 h-full text-white text-center md:text-left m-10 md:m-0 md:ml-16">
 						<h2 class="text-2xl font-medium w-64">
 							Скачайте полную презентацию проекта
 						</h2>
@@ -184,7 +185,8 @@
 
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-center px-4 md:px-0 md:justify-items-end bg-blue-back">
+		<div
+			class="grid grid-cols-1 md:grid-cols-2 gap-4 min-h-600 max-h-864 justify-items-center px-4 md:px-0 md:justify-items-end bg-blue-back">
 			<div class="w-full md:w-5/6 h-full grid grid-cols-3 gap-2 grid-rows-4 gab-2">
 				<div class="col-span-3 flex items-end">
 					<h2 class="text-white text-2xl font-medium">О проекте</h2>
@@ -202,7 +204,7 @@
 				{% endfor %}
 			</div>
 
-			<img class="hidden w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
+			<img class="invisible md:visible w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
 		</div>
 	</section>
 
@@ -213,7 +215,8 @@
 		</div>
 
 		<div class="relative swiper mySwiper2">
-			<div class="z-10 md:absolute w-full md:h-full grid grid-cols-2 md:grid-cols-6 gap-4 justify-items-center content-center">
+			<div
+				class="z-10 md:absolute w-full md:h-full grid grid-cols-2 md:grid-cols-6 gap-4 justify-items-center content-center">
 				<div class="md:col-start-1 md:col-end-2 place-self-end">
 					<img class="max-h-16 object-contain slidePrev-btn2" src='{% static "/utils/icons/pointL.png" %}' />
 				</div>
@@ -242,7 +245,8 @@
 							</div>
 						</div>
 					</div>
-					<img class="z-0 rounded-2xl min-h-60h md:h-600 w-full object-cover" src="{{ adv.image.url }}" alt="" />
+					<img class="z-0 rounded-2xl min-h-60h md:h-600 w-full object-cover" src="{{ adv.image.url }}"
+						alt="" />
 				</div>
 				{% endfor %}
 			</div>
@@ -263,7 +267,8 @@
 		<div class="z-10 absolute w-full md:h-full md:max-h-600">
 			<div class="container md:h-full mx-auto">
 				<div class="flex flex-col h-full justify-center items-center">
-					<div class="z-10 w-full my-4 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
+					<div
+						class="z-10 w-full my-4 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/20">
 						<form class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
 							action="contact">
 							<h2 class="text-white text-2xl font-medium text-center py-8">
@@ -301,15 +306,16 @@
 	<!-- Footer -->
 	<footer class="w-full md:my-0 min-h-52 md:h-52 bg-back text-white" id="contacts">
 		<div class="container mx-auto h-full flex flex-col justify-around">
-			<div class="w-full grid grid-cols-2 gap-y-6 md:flex md:flex-row md:items-center justify-between mt-4">
-				
-				<div class="flex-none flex items-center w-32 h-8 ml-3 md:ml-12 gap-x-1">
+			<div class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-4">
+
+				<div class="flex-none flex items-center w-32 h-8 md:ml-12 gap-x-1">
 					<a href="#main" class="m-invert">
 						<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
 					</a>
 				</div>
 
-				<div class="order-3 col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 w-full md:flex-auto md:flex flex-row md:justify-around mx-4 text-sm">
+				<div
+					class="order-3 md:order-none col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 justify-items-center  w-full md:flex-auto md:flex flex-row md:justify-around md:mx-4 text-sm">
 					<a href="#main">Главная</a>
 					<a href="#gelery">Галерея</a>
 					<a href="#about">О проекте</a>
@@ -318,7 +324,7 @@
 					<a href="#contacts">Контакты</a>
 				</div>
 
-				<div class="order-2 flex flex-row items-center gap-1 mr-12">
+				<div class="order-2 md:order-none flex flex-row items-center gap-1 mr-12">
 					<a href="{{ object.tg_link }}">
 						<img class="max-h-12 object-contain" src='{% static "/utils/icons/icon_tg_white.svg" %}' />
 					</a>
