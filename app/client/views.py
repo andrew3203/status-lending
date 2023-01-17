@@ -8,10 +8,12 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.sites.shortcuts import get_current_site
+
 # Create your views here.
  
 def index(request):
-    st = SiteData.objects.filter(site=Site.objects.get_current()).first()
+    st = SiteData.objects.filter(site=get_current_site(request)).first()
     if st is not None:
         complex  = Complex.objects.filter(
             site = st,
