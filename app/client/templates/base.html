@@ -52,10 +52,23 @@
 				<a href="{{ object.wh_link }}">
 					<img class="max-h-10 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
-				<button class="visible md:invisible">
+				<button class="visible md:invisible menu">
 					<img class="max-h-12 object-contain" src="{% static '/utils/icons/icon_menu.svg' %}" alt="">
 				</button>
 			</div>
+		</div>
+		<div class="z-25 hidden absolute w-full top-0 left-0 right-0 mt-20 h-screen bg-back my-menu">
+			<div class="grid grod-rows-6 gap-y-8 text-white text-2xl font-semibold ml-6">
+
+				<a class="mt-8 close-link" href="#main">Главная</a>
+				<a class="close-link" href="#gelery">Галерея</a>
+				<a class="close-link" href="#about">О проекте</a>
+				<a class="close-link" href="#advanteges">Приемущества</a>
+				<a class="close-link" href="#location">Расположение</a>
+				<a class="close-link" href="#contacts">Контакты</a>
+
+			</div>
+
 		</div>
 	</header>
 
@@ -63,31 +76,31 @@
 	<section class="z-10 container mx-auto h-5/6 text-white mt-20 md:mt-40" id="main">
 		<div class="relative">
 			<div class="z-10 absolute w-full h-full">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-full content-around mx-auto w-full: w-4/5">
-					<div class="col-span-1 md:col-span-2 font-extralight mt-6 md:mt-12">
-						<h1 class="text-xl md: text-2xl">{{ object.ctype }}</h1>
-						<h1 class="text-5xl md: text-7xl mt-2 mb-8">{{ object.name }}</h1>
-						<h2 class="text-md md:text-lg text-normal ">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 h-full content-around mx-auto w-full: w-4/5">
+					<div class="col-span-1 md:col-span-2 font-extralight mt-4 md:mt-12">
+						<h1 class="text-lg md:text-2xl">{{ object.ctype }}</h1>
+						<h1 class="text-4xl md:text-7xl mt-2 mb-8">{{ object.name }}</h1>
+						<h2 class="text-sm md:text-lg text-normal ">
 							{{ object.short }}
 						</h2>
 					</div>
-					<div class="mx-auto md:mx-0 order-last md:order-none">
+					<div class="mx-auto md:mx-0 order-last md:order-none md:flex md:flex-col md:justify-end">
 						<div
-							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer hover:bg-transparent ease-in-out duration-300">
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer hover:bg-transparent ease-in-out transition duration-300">
 							<h2 class="w-48 text-center font-medium text-base leading-5">
-								Консультация
+								Получить консультацию
 							</h2>
 						</div>
 					</div>
 					<div
-						class="rounded-xl h-20 grid grid-cols-2 gab-x-4 justify-items-center content-center bg-white/20">
+						class="rounded-xl h-20 md:h-30 grid grid-cols-2 justify-items-center content-center bg-white/20">
 						<div>
-							<h2 class="text-xl">от {{ object.square }} м<sup>2</sup></h2>
-							<h2 class="text-xs">площадь апартаментов</h2>
+							<h2 class="text-lg md:text-2xl">от {{ object.square }} м<sup>2</sup></h2>
+							<h2 class="text-xs md:text-lg">площадь апартаментов</h2>
 						</div>
 						<div>
-							<h2 class="text-xl">от {{ object.formated_price }} ₽</h2>
-							<h2 class="text-xs">за квадратный метр</h2>
+							<h2 class="text-lg md:text-2xl">от {{ object.formated_price }} ₽</h2>
+							<h2 class="text-xs md:text-lg">за м<sup>2</sup> с отделькой</h2>
 						</div>
 					</div>
 
@@ -115,7 +128,7 @@
 							Скачайте полную презентацию проекта
 						</h2>
 						<div
-							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer hover:bg-tbrown ease-in-out duration-300 open-modal2">
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer hover:bg-tbrown ease-in-out transition duration-300 open-modal2">
 							<h2 class="w-48 text-center font-medium text-base leading-5">
 								Скачать презентацию PDF {{ object.presentation.size | filesizeformat }}
 							</h2>
@@ -142,8 +155,8 @@
 		<div class="swiper mySwiper">
 			<div class="swiper-wrapper">
 				{% for im in object.images %}
-				<div class="swiper-slide ease-in-out duration-400">
-					<img class="rounded-2xl drop-shadow-md h-64 w-auto object-cover" src="{{ im.image.url }}" alt="" />
+				<div class="swiper-slide ease-in-out transition duration-400">
+					<img class="rounded-2xl drop-shadow-md h-64 w-full object-cover" src="{{ im.image.url }}" alt="" />
 				</div>
 				{% endfor %}
 			</div>
@@ -203,18 +216,18 @@
 					<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 					<div class="flex items-center justify-center md:justify-end">
 						<button type="submit"
-							class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out duration-300">
+							class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out transition duration-300">
 							Отправить
 						</button>
 					</div>
 				</form>
-				<div class="invisible form-done flex flex-col justify-center items-center h-full">
-					<h2 class="text-center text-green-500 px-2">
+				<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
+					<h2 class="text-center text-white px-2 font-medium">
 						Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
 					</h2>
 				</div>
-				<div class="invisible form-fail flex flex-col justify-center items-center">
-					<h2 class="text-center text-red-500 px-2">
+				<div class="hidden invisible form-fail flex flex-col justify-center items-center">
+					<h2 class="text-center text-red-700 px-2">
 						Уппссс.. Возникла какая то ошибка
 					</h2>
 				</div>
@@ -244,7 +257,7 @@
 
 			<div class="swiper-wrapper">
 				{% for adv in object.advantages %}
-				<div class="swiper-slide relative ease-in-out duration-200">
+				<div class="swiper-slide relative ease-in-out transition duration-200 ">
 					<div
 						class="absolute md:rounded-2xl opacity-80 bg-back md:drop-shadow-md w-full h-full flex justify-center">
 						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl mx-2">
@@ -256,12 +269,12 @@
 								</h2>
 							</div>
 
-							<div class="text-white">
+							<div class="text-sm md:text-xl text-white">
 								{{ adv.desciption | safe }}
 							</div>
 						</div>
 					</div>
-					<img class="z-0 md:rounded-2xl min-h-60h md:md:min-h-0 md:h-600 md:max-h-600 w-full object-cover"
+					<img class="z-0 md:rounded-2xl min-h-80h md:md:min-h-0 md:h-600 md:max-h-600 w-full object-cover"
 						src="{{ adv.image.url }}" alt="" />
 				</div>
 				{% endfor %}
@@ -284,9 +297,8 @@
 			<div class="container md:h-full mx-auto">
 				<div class="flex flex-col h-full justify-center items-center px-2.5 md:px-0">
 					<div
-						class="z-10 w-full my-5 md:my-0 md:w-2/5 h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/10">
-						<form id="f2" class="flex flex-col h-full justify-center items-center w-2/3 h-full mx-auto"
-							action="contact">
+						class="z-10 w-full my-5 md:my-0 md:w-2/5 md:h-4/5 rounded-2xl backdrop-blur-sm border border-inherit bg-white/10">
+						<form id="f2" class="flex flex-col justify-center items-center w-2/3 mx-auto" action="contact">
 							{% csrf_token %}
 							<h2 class="text-white text-2xl font-medium text-center py-8">
 								Оставьте свои координаты<br />и мы свяжемся с вами
@@ -310,17 +322,17 @@
 							</div>
 							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 							<button type="submit"
-								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out duration-300">
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out transition duration-300">
 								Отправить
 							</button>
 						</form>
-						<div class="invisible form-done flex flex-col justify-center items-center h-full">
-							<h2 class="text-center text-green-500 px-2">
+						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-center text-white px-2 font-medium">
 								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
 							</h2>
 						</div>
-						<div class="invisible form-fail flex flex-col justify-center items-center">
-							<h2 class="text-center text-red-500 px-2">
+						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-700 px-2">
 								Уппссс.. Возникла какая то ошибка
 							</h2>
 						</div>
@@ -328,8 +340,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-75h md:max-h-600"></div>
-		<img class="z-0 md:h-full min-h-75h md:md:min-h-0 md:max-h-600 w-full object-cover"
+		<div class="z-1 absolute opacity-70 bg-back w-full md:h-full min-h-550 md:max-h-600"></div>
+		<img class="z-0 md:h-full min-h-550 md:md:min-h-0 md:max-h-600 w-full object-cover"
 			src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
@@ -375,7 +387,7 @@
 
 	<!-- Modal 1 -->
 	<section class="z-20 fixed inset-0 h-screen w-screen modal" style="display: none;">
-		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-40 px-2 md:px-0">
+		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-24 md:mt-40 px-2 md:px-0">
 			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-min md:h-full">
 					<div class="w-full hidden md:flex flex-col justify-center align-center">
@@ -401,27 +413,27 @@
 								placeholder="Телефон" />
 							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 							<button type="submit"
-								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out transition duration-300">
 								Отправить
 							</button>
 							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
 								данных</span>
 						</form>
-						<div class="invisible form-done flex flex-col justify-center items-center h-full">
-							<h2 class="text-center text-green-500 px-2">
+						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-center text-white px-2 font-medium">
 								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
 							</h2>
 						</div>
-						<div class="invisible form-fail flex flex-col justify-center items-center">
-							<h2 class="text-center text-red-500 px-2">
+						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-700 px-2">
 								Уппссс.. Возникла какая то ошибка
 							</h2>
 						</div>
 					</div>
 				</div>
-				<a class="absolute top-0 right-0 mr-2 mt-2 close-btn cursor-pointer" href="#">
+				<button class="absolute top-0 right-0 mr-2 mt-2 close-btn">
 					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
-				</a>
+				</button>
 			</div>
 		</div>
 		<div class="z-1 absolute opacity-70 bg-back w-full h-full"></div>
@@ -430,7 +442,7 @@
 
 	<!-- Modal 2 -->
 	<section class="z-20 fixed inset-0 h-screen w-screen modal2" style="display: none;">
-		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-40 px-2 md:px-0">
+		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-24 md:mt-40 px-2 md:px-0">
 			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-min md:h-full">
 					<div class="w-full hidden md:flex flex-col justify-center align-center">
@@ -457,33 +469,51 @@
 							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
 
 							<button type="submit"
-								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
+								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out transition duration-300">
 								Отправить
 							</button>
 							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
 								данных</span>
 						</form>
-						<div class="invisible form-done flex flex-col justify-center items-center h-full">
-							<h2 class="text-cente text-green-500 px-2">
+
+						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
+							<h2 class="text-cente text-white px-2 font-medium">
 								Ваша заявка принята!<br><br>В скором времени мы вышлем Вам презентацию!
 							</h2>
 						</div>
-						<div class="invisible form-fail flex flex-col justify-center items-center">
-							<h2 class="text-center text-red-500 px-2">
+						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
+							<h2 class="text-center text-red-700 px-2">
 								Уппссс.. Возникла какая то ошибка
 							</h2>
 						</div>
 
 					</div>
 				</div>
-				<a class="absolute top-0 right-0 mr-2 mt-2 close-btn2 cursor-pointer" href="#">
+				<button class="absolute top-0 right-0 mr-2 mt-2 close-btn2">
 					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
-				</a>
+				</button>
 			</div>
 		</div>
 		<div class="z-1 absolute opacity-70 bg-back w-full h-full"></div>
 		<img class="z-0 h-full w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
+
+	<div class="z-40 fixed right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
+		<button class="z-1 text-center text-white font-medium call h-full w-full">Call<br>Me</button>
+		<div style="display: none;" class="z-2 absolute h-36 w-40 -ml-20 -mt-20 bg-white rounded-xl grid grid-rows-3 grid-cols-1 gap-2 justify-items-center drop-shadow-xl call-modal">
+			<div class="rounded-full bg-gray-900 -mt-8 h-16 w-16 drop-shadow-xl">
+				<img class="w-full h-full object-cover rounded-full" src="{% static '/utils/contact.jpg' %}" alt="">
+			</div>
+			<h2 class="text-xs text-gray-600 font-base text-center -mt-1">
+				Позвоните для консультации
+				эксперту компании
+			</h2>
+			<a href="tel:+74957948519" class="text-sm font-semibold">+7-495-794-85-19</a>
+			<button class="absolute top-2 right-2 cursor-pointer close-call">
+				<img class="h-5 w-5 object-contain invert hover:animation-ping" src="{% static '/utils/icons/close.svg' %}" alt="">
+			</button>
+		</div>
+	</div>
 
 	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>
 	<script src="{% static '/js/swiper.js' %}" type="application/javascript"></script>

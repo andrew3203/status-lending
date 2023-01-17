@@ -54,7 +54,7 @@ class Complex(models.Model):
     ctype = models.CharField(
         'Тип ЖК',
         help_text='Например: Клубный Дом, Жилой Комплекс и тд',
-        max_length=180,
+        max_length=180, default="", blank=True
     )
     name = models.CharField(
         'Название колмплекса',

@@ -25,11 +25,11 @@ $(function () {
       data: my_data,
       success: function (data, textStatus, jqXHR) {
         form.hide();
-        form.parent().find(".form-done").addClass( "visible" ).removeClass( "invisible" );
-        form.parent().find(".form-fail").addClass( "invisible" ).removeClass( "visible" );
+        form.parent().find(".form-done").addClass( "visible" ).removeClass( "invisible" ).css('display', 'flex')
+        form.parent().find(".form-fail").addClass( "invisible" ).removeClass( "visible" ).css('display', 'none')
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        form.parent().find(".form-fail").addClass( "visible" ).removeClass( "invisible" );
+        form.parent().find(".form-fail").addClass( "visible" ).removeClass( "invisible" ).css('display', 'flex')
       },
     });
     return false;
@@ -57,5 +57,26 @@ $(function () {
   $(".close-btn2").click(function () {
     $(".modal2").fadeOut(300);
     $(".modal2").hide();
+  });
+
+  $(".call").click(function () {
+    $(".call-modal").css('display', 'absolute');
+    $(".call-modal").fadeIn(300);
+  });
+
+  $(".close-call").click(function () {
+    $(".call-modal").fadeOut(300);
+    $(".call-modal").css('display', 'none');
+  });
+
+  $(".menu").click(function () {
+    $(".my-menu").css('display', 'absolute');
+    $(".my-menu").fadeIn(300);
+  });
+
+  $(".close-link").click(function () {
+    
+    $(".my-menu").css('display', 'none');
+    $(".my-menu").fadeOut(300);
   });
 });
