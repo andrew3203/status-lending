@@ -31,7 +31,7 @@
 	<!-- Nav -->
 	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto md:py-4">
 		<div
-			class="flex flex-row items-center justify-between h-20 md:mt-8 py-5 md:py-0 bg-white md:rounded-large md:shadow-ssl">
+			class="flex flex-row items-center justify-between h-20 md:mt-2 py-5 md:py-0 bg-white md:rounded-large md:shadow-ssl">
 			<div class="flex-none flex items-center w-32 h-8 ml-4 md:ml-12 gap-x-1">
 				<a href="#">
 					<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
@@ -71,10 +71,10 @@
 							{{ object.short }}
 						</h2>
 					</div>
-					<div class="mx-auto md:mx-0 order-last md:order-none ">
+					<div class="mx-auto md:mx-0 order-last md:order-none">
 						<div
-							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer">
-							<h2 class="w-48 text-center font-sm text-base leading-5">
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit bg-tbrown open-modal cursor-pointer hover:bg-transparent ease-in-out duration-300">
+							<h2 class="w-48 text-center font-medium text-base leading-5">
 								Консультация
 							</h2>
 						</div>
@@ -96,6 +96,38 @@
 			<div class="z-1 absolute md:rounded-3xl opacity-70 bg-back w-full h-full"></div>
 			<img class="z-0 md:rounded-3xl h-80h md:max-h-75h w-full object-cover" src="{{ object.title_image.url }}"
 				alt="" />
+		</div>
+	</section>
+
+	<!-- Get the presentation  -->
+	<section class="z-10 w-full my-20 relative">
+		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
+			<div class="relative flex justify-center items-center h-full w-full mx-auto">
+				<div class="invisible md:visible z-0 absolute bottom-0 right-36">
+					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}"
+						alt="" />
+				</div>
+
+				<div class="md:mr-44 md:w-6/12 md:h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
+					<div
+						class="grid grid-cols-1 content-around gap-6 md:gap-1 h-full text-white text-center md:text-left m-10 md:m-0 md:ml-16">
+						<h2 class="text-2xl font-medium w-64">
+							Скачайте полную презентацию проекта
+						</h2>
+						<div
+							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer hover:bg-tbrown ease-in-out duration-300 open-modal2">
+							<h2 class="w-48 text-center font-medium text-base leading-5">
+								Скачать презентацию PDF {{ object.presentation.size | filesizeformat }}
+							</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="z-0">
+			<div class="absolute opacity-70 bg-back w-full h-full"></div>
+			<img class="z-0 min-h-60h md:md:min-h-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
@@ -122,67 +154,6 @@
 		</div>
 	</section>
 
-	<!-- Get the presentation  -->
-	<section class="z-10 w-full mb-12 relative">
-		<div class="z-10 absolute top-0 left-0 right-0 container mx-auto h-full">
-			<div class="relative flex justify-center items-center h-full w-full mx-auto">
-				<div class="invisible md:visible z-0 absolute bottom-0 right-36">
-					<img class="w-4/5 h-full object-contain" src="{% static '/utils/icons/icon_download2.svg' %}"
-						alt="" />
-				</div>
-
-				<div class="md:mr-44 md:w-6/12 md:h-2/3 border border-inherit rounded-2xl backdrop-blur-sm bg-white/10">
-					<div
-						class="grid grid-cols-1 content-around gap-6 md:gap-1 h-full text-white text-center md:text-left m-10 md:m-0 md:ml-16">
-						<h2 class="text-2xl font-medium w-64">
-							Скачайте полную презентацию проекта
-						</h2>
-						<div
-							class="rounded-4xl w-60 h-16 flex items-center justify-center border border-inherit cursor-pointer">
-							<h2 class="w-48 text-center font-sm text-base leading-5">
-								Скачать презентацию PDF XXX Мб
-							</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="z-0">
-			<div class="absolute opacity-70 bg-back w-full h-full"></div>
-			<img class="z-0 min-h-60h md:md:min-h-0 max-h-500 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
-		</div>
-	</section>
-
-	<!-- Application  -->
-	<section class="z-10 container mx-auto my-20">
-		<div class="relative mx-2 md:mx-0">
-			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
-				<form class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto" action="">
-					<div class="md:col-span-3 flex items-center">
-						<h2 class="text-white text-2xl font-medium">
-							Оставьте свои координаты<br />и мы свяжемся с вами
-						</h2>
-					</div>
-					<div class="flex items-center">
-						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="text"
-							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя" />
-					</div>
-					<div class="flex items-center">
-						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
-							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
-					</div>
-					<div class="flex items-center justify-center md:justify-end">
-						<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0">
-							Отправить
-						</button>
-					</div>
-				</form>
-			</div>
-			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
-		</div>
-	</section>
-
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
 		<div
@@ -205,6 +176,35 @@
 			</div>
 
 			<img class="hidden md:block w-full h-full object-cover" src="{{ object.second_image.url }}" alt="" />
+		</div>
+	</section>
+
+	<!-- Application  -->
+	<section class="z-10 container mx-auto my-20">
+		<div class="relative mx-2 md:mx-0">
+			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
+				<form class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto" action="">
+					<div class="md:col-span-3 flex items-center">
+						<h2 class="text-white text-2xl font-medium">
+							Оставьте свои координаты<br />и мы свяжемся с вами
+						</h2>
+					</div>
+					<div class="flex items-center">
+						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="text"
+							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя" />
+					</div>
+					<div class="flex items-center">
+						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
+							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
+					</div>
+					<div class="flex items-center justify-center md:justify-end">
+						<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out duration-300">
+							Отправить
+						</button>
+					</div>
+				</form>
+			</div>
+			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 		</div>
 	</section>
 
@@ -291,7 +291,7 @@
 								<input type="checkbox" id="policy" name="policy" />
 								<label for="policy">Я согласен на обработку моих персональных данных</label>
 							</div>
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2">
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out duration-300">
 								Отправить
 							</button>
 						</form>
@@ -342,6 +342,7 @@
 		</div>
 	</footer>
 
+	<!-- Modal 1 -->
 	<section class="z-20 fixed inset-0 h-screen w-screen modal" style="display: none;">
 		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-40 px-2 md:px-0">
 			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
@@ -365,7 +366,7 @@
 								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
 								placeholder="Телефон" />
 
-							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4">
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
 								Отправить
 							</button>
 							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
@@ -375,6 +376,48 @@
 					</div>
 				</div>
 				<a class="absolute top-0 right-0 mr-2 mt-2 close-btn cursor-pointer" href="#">
+					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
+				</a>
+			</div>
+		</div>
+		<div class="z-1 absolute opacity-70 bg-back w-full h-full"></div>
+		<img class="z-0 h-full w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
+	</section>
+
+	<!-- Modal 2 -->
+	<section class="z-20 fixed inset-0 h-screen w-screen modal2" style="display: none;">
+		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-40 px-2 md:px-0">
+			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-min md:h-full">
+					<div class="w-full hidden md:flex flex-col justify-center align-center">
+						<div class="ml-28">
+							<img class="max-h-28 object-contain m-invert" src="{{ object.logo.url }}" alt="">
+							<p class="text-left text-white text-2xl mt-8">{{ object.short }}</p>
+						</div>
+
+					</div>
+					<div class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
+						<form class="flex flex-col h-full justify-center items-left w-2/3 h-full mx-auto" action="">
+							<h2 class="text-white text-base py-8">
+								Скачать полную презентацию проекта? Оставьте нам свою почту и менеджер отправит
+								вам презентацию!
+							</h2>
+							<label for="email3" class="text-sm text-white font-thin">Ваша почта*</label>
+
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="email" id="email3" name="email" required minlength="4" maxlength="30"
+								placeholder="Почта" />
+
+							<button type="submit" class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out duration-300">
+								Отправить
+							</button>
+							<span class="text-sm text-white font-thin">*Вы даете согласие на обработку персональных
+								данных</span>
+						</form>
+
+					</div>
+				</div>
+				<a class="absolute top-0 right-0 mr-2 mt-2 close-btn2 cursor-pointer" href="#">
 					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
 				</a>
 			</div>
