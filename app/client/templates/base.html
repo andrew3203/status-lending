@@ -78,8 +78,8 @@
 			<div class="z-10 absolute w-full h-full">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 h-full content-around mx-auto w-full: w-4/5">
 					<div class="col-span-1 md:col-span-2 font-extralight mt-4 md:mt-12">
-						<h1 class="text-lg md:text-2xl">{{ object.ctype }}</h1>
-						<h1 class="text-4xl md:text-7xl mt-2 mb-8">{{ object.name }}</h1>
+						<h1 class="text-xl md:text-2xl">{{ object.ctype }}</h1>
+						<h1 class="text-5xl md:text-7xl mt-2 mb-8">{{ object.name }}</h1>
 						<h2 class="text-sm md:text-lg text-normal ">
 							{{ object.short }}
 						</h2>
@@ -171,8 +171,8 @@
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
 		<div
-			class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-4 h-min justify-items-center px-2 md:px-0 md:justify-items-end bg-blue-back">
-			<div class="w-full md:w-5/6 h-full grid grid-cols-3 gap-1 md:gap-2 grid-rows-4">
+			class="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-4 h-min justify-items-center px-2 md:px-0 md:justify-items-end bg-blue-back">
+			<div class="w-full md:w-5/6 grid grid-cols-3 gap-2 md:grid-rows-4 my-24 md:my-0">
 				<div class="col-span-3 flex items-end">
 					<h2 class="text-white text-3xl font-medium my-1">О проекте</h2>
 				</div>
@@ -287,8 +287,7 @@
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8 px-2 md:px-0">
 			<h2 class="text-4xl text-center">Расположение на карте</h2>
 		</div>
-		<script type="text/javascript" charset="utf-8" async
-			src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aa0c01dfeeabfb8cf4a5568f29fbc43a0aeeb946b5bb2d46e1a5099b6b9f9aec8&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+		{{ object.map | safe }}
 	</section>
 
 	<!-- Application 2 -->
@@ -500,7 +499,7 @@
 
 	<div class="z-40 fixed right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
 		<button class="z-1 text-center text-white font-medium call h-full w-full">Call<br>Me</button>
-		<div style="display: none;" class="z-2 absolute h-36 w-40 -ml-20 -mt-20 bg-white rounded-xl grid grid-rows-3 grid-cols-1 gap-2 justify-items-center drop-shadow-xl call-modal">
+		<div style="display: none;" class="z-2 absolute h-36 w-40 -ml-24 md:-ml-20 -mt-20 bg-white rounded-xl grid grid-rows-3 grid-cols-1 gap-2 justify-items-center drop-shadow-xl call-modal">
 			<div class="rounded-full bg-gray-900 -mt-8 h-16 w-16 drop-shadow-xl">
 				<img class="w-full h-full object-cover rounded-full" src="{% static '/utils/contact.jpg' %}" alt="">
 			</div>
