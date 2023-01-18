@@ -9,6 +9,8 @@ function serializeForm(form_obj) {
 
 $(function () {
   let submit_form_ids = "#f1, #f2, #f3, #f4";
+  let isOpen = false;
+
   $(submit_form_ids).submit(function (event) {
     event.preventDefault();
     var form = $(this);
@@ -25,11 +27,26 @@ $(function () {
       data: my_data,
       success: function (data, textStatus, jqXHR) {
         form.hide();
-        form.parent().find(".form-done").addClass( "visible" ).removeClass( "invisible" ).css('display', 'flex')
-        form.parent().find(".form-fail").addClass( "invisible" ).removeClass( "visible" ).css('display', 'none')
+        form
+          .parent()
+          .find(".form-done")
+          .addClass("visible")
+          .removeClass("invisible")
+          .css("display", "flex");
+        form
+          .parent()
+          .find(".form-fail")
+          .addClass("invisible")
+          .removeClass("visible")
+          .css("display", "none");
       },
       error: function (jqXHR, textStatus, errorThrown) {
-        form.parent().find(".form-fail").addClass( "visible" ).removeClass( "invisible" ).css('display', 'flex')
+        form
+          .parent()
+          .find(".form-fail")
+          .addClass("visible")
+          .removeClass("invisible")
+          .css("display", "flex");
       },
     });
     return false;
@@ -60,23 +77,29 @@ $(function () {
   });
 
   $(".call").click(function () {
-    $(".call-modal").css('display', 'absolute');
+    $(".call-modal").css("display", "absolute");
     $(".call-modal").fadeIn(300);
   });
 
   $(".close-call").click(function () {
     $(".call-modal").fadeOut(300);
-    $(".call-modal").css('display', 'none');
+    $(".call-modal").css("display", "none");
   });
 
   $(".menu").click(function () {
-    $(".my-menu").css('display', 'absolute');
-    $(".my-menu").fadeIn(300);
+    if (isOpen) {
+      $(".my-menu").css("display", "none");
+      $(".my-menu").fadeOut(300);
+      isOpen = false;
+    } else {
+      $(".my-menu").css("display", "absolute");
+      $(".my-menu").fadeIn(300);
+      isOpen = true;
+    }
   });
 
   $(".close-link").click(function () {
-    
-    $(".my-menu").css('display', 'none');
+    $(".my-menu").css("display", "none");
     $(".my-menu").fadeOut(300);
   });
 });
