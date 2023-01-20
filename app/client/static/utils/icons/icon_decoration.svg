@@ -1,14 +1,21 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_158_136)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M55.3002 47.8C54.5002 48.6 53.2002 48.6 52.5002 47.8L16.3002 11.6C15.5002 10.8 15.5002 9.49998 16.3002 8.79998L23.4002 1.69998C24.2002 0.899976 25.5002 0.899976 26.2002 1.69998L62.4002 37.9C63.2002 38.7 63.2002 40 62.4002 40.7L55.3002 47.8Z" stroke="#C0845E" stroke-width="2"/>
-<path d="M17.7002 3.09998L19.8002 5.19998" stroke="#C0845E" stroke-width="2"/>
-<path d="M58.9001 44.2L61.7001 47.1L53.2001 55.6L27.6001 37.1L22.6001 42.1" stroke="#C0845E" stroke-width="2"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.00008 62.4C7.10008 63.3 5.30008 63.1 4.00008 61.8L2.90008 60.7C1.60008 59.4 1.40008 57.7 2.30008 56.7L18.8001 40.2C19.7001 39.3 21.5001 39.5 22.8001 40.8L23.9001 41.9C25.2001 43.2 25.4001 44.9 24.5001 45.9L8.00008 62.4Z" stroke="#C0845E" stroke-width="2"/>
-<path d="M24.8 5.89996L58.9001 40" stroke="#C0845E" stroke-width="2"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 128 128" style="enable-background:new 0 0 128 128;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C0845E;}
+</style>
+<g>
+	<path class="st0" d="M20,116.3h21.3V95H20V116.3z M23,98h15.3v15.3H23V98z"/>
+	<path class="st0" d="M125.6,53.6V32.8h-10V16.1h9.8V2.5H2.6v13.7h9.8v16.7h-10v20.8h10v14.9h-10v20.8h10v36.2h103.2V89.4h10V68.5
+		h-10V53.6H125.6z M5.6,13.1V5.5h116.8v7.7h-6.8v0H12.4v0H5.6z M5.4,50.6V35.8h7h3H20h3h15.3h3h1.5v14.8H15.4h-3H5.4z M38.3,32.8H23
+		v-9.1h15.3V32.8z M5.4,86.4V71.5h7h3H20h3h15.3h3h1.5v14.8H15.4h-3H5.4z M38.3,68.5H23v-9.1h15.3V68.5z M56.1,122.5V98h15.3v24.5
+		H56.1z M122.6,71.5v14.8h-7h-3H85.1V71.5h1.5h3H105h3h4.6h3H122.6z M105,68.5H89.7v-9.1H105V68.5z M112.6,68.5H108V56.4H86.7v12.1
+		h-4.5v20.8h30.5v33.2H74.4V95H53.1v27.6H15.4V89.4h30.4V68.5h-4.5V56.4H20v12.1h-4.6V53.6h30.4V32.8h-4.5V20.7H20v12.1h-4.6V16.1
+		h97.2v16.7H108V20.7H86.7v12.1h-4.5v20.8h30.4V68.5z M105,32.8H89.7v-9.1H105V32.8z M112.6,50.6H85.2V35.8h1.5h3H105h3h4.6h3h7
+		v14.8h-7H112.6z"/>
+	<path class="st0" d="M108,95H86.7v21.3H108V95z M105,113.3H89.7V98H105V113.3z"/>
+	<path class="st0" d="M53.1,42h21.3V20.7H53.1V42z M56.1,23.7h15.3V39H56.1V23.7z"/>
+	<path class="st0" d="M53.1,77.6h21.3V56.3H53.1V77.6z M56.1,59.3h15.3v15.3H56.1V59.3z"/>
 </g>
-<defs>
-<clipPath id="clip0_158_136">
-<rect width="64" height="64" fill="white"/>
-</clipPath>
-</defs>
 </svg>

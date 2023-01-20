@@ -89,10 +89,14 @@ $(function () {
   $(".menu").click(function () {
     if (isOpen) {
       $(".my-menu").css("display", "none");
+      $(".closei").css("display", "none");
+      $(".closeo").css("display", "block");
       $(".my-menu").fadeOut(300);
       isOpen = false;
     } else {
       $(".my-menu").css("display", "absolute");
+      $(".closei").css("display", "block");
+      $(".closeo").css("display", "none");
       $(".my-menu").fadeIn(300);
       isOpen = true;
     }
@@ -101,5 +105,15 @@ $(function () {
   $(".close-link").click(function () {
     $(".my-menu").css("display", "none");
     $(".my-menu").fadeOut(300);
+    $(".closei").css("display", "none");
+    $(".closeo").css("display", "block");
+  });
+  $(".close23").click(function () {
+    $(".modal23").fadeIn(300);
+    $(".modal23").css("display", "none");
+  });
+  $(".pop-open").click(function () {
+    $(".modal23").fadeIn(300);
+    $(".modal23").css("display", "fixed");
   });
 });

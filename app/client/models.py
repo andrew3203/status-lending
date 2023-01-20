@@ -155,6 +155,16 @@ class Complex(models.Model):
     @property
     def features(self):
         return Feature.objects.filter(complex=self)
+    
+    @property
+    def layouts(self):
+        return Layout.objects.filter(complex=self)
+    
+    @property
+    def is_layouts(self):
+        return len(self.layouts) > 0
+
+        
 
     formated_price.fget.short_description = 'Цена за м2'
 
@@ -228,6 +238,30 @@ class Feature(models.Model):
 
     def __str__(self) -> str:
         return f'{self.amount} {self.name}'
+
+
+class Layout(models.Model):
+    image = models.ImageField(
+        "Фотография",
+        upload_to=save_path,
+    )
+    complex =models.ForeignKey(
+        Complex,
+        verbose_name='Комплекс',
+        on_delete=models.CASCADE
+    )
+    desciption = models.TextField(
+        'Описание',
+        max_length=200,
+        blank=True, default=''
+    )
+    
+    class Meta:
+        verbose_name = 'Планировка'
+        verbose_name_plural = 'Планировки'
+
+    def __str__(self) -> str:
+        return f'{os.path.basename(self.image.name)}'
 
 
 class Image(models.Model):

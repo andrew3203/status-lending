@@ -19,10 +19,15 @@ class SiteFilter(admin.SimpleListFilter):
 
 class ImageAdminInline(admin.TabularInline):
     model = Image
-
+    extra = 1
 
 class FeatureAdminInline(admin.TabularInline):
     model = Feature
+    extra = 1
+
+class LayoutAdminInline(admin.TabularInline):
+    model = Layout
+    extra = 1
 
 
 class AdvantageAdminInline(admin.StackedInline):
@@ -44,7 +49,8 @@ class ComplexAdmin(admin.ModelAdmin):
     inlines = [
         FeatureAdminInline,
         ImageAdminInline,
-        AdvantageAdminInline
+        AdvantageAdminInline,
+        LayoutAdminInline
     ]
     prepopulated_fields = {"slug": ["name",]}
     

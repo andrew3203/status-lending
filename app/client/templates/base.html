@@ -27,7 +27,6 @@
 </head>
 
 <body class="leading-normal tracking-normal overflow-x-hidden">
-
 	<!-- Nav -->
 	<header class="z-30 fixed top-0 left-0 right-0 container mx-auto md:py-4">
 		<div
@@ -53,22 +52,22 @@
 					<img class="max-h-10 object-contain" src='{% static "/utils/icons/icon_watssup.svg" %}' />
 				</a>
 				<button class="visible md:invisible menu">
-					<img class="max-h-12 object-contain" src="{% static '/utils/icons/icon_menu.svg' %}" alt="">
+					<img class="max-h-12 object-contain closeo" src="{% static '/utils/icons/icon_menu.svg' %}"
+						alt="" />
+					<img class="hidden max-h-12 object-contain closei invert"
+						src="{% static '/utils/icons/close.svg' %}" alt="" />
 				</button>
 			</div>
 		</div>
 		<div class="z-25 hidden absolute w-full top-0 left-0 right-0 mt-20 h-screen bg-back my-menu">
 			<div class="grid grod-rows-6 gap-y-8 text-white text-2xl font-semibold ml-6">
-
 				<a class="mt-8 close-link" href="#main">Главная</a>
 				<a class="close-link" href="#gelery">Галерея</a>
 				<a class="close-link" href="#about">О проекте</a>
 				<a class="close-link" href="#advanteges">Преимущества</a>
 				<a class="close-link" href="#location">Расположение</a>
 				<a class="close-link" href="#contacts">Контакты</a>
-
 			</div>
-
 		</div>
 	</header>
 
@@ -80,9 +79,7 @@
 					<div class="col-span-1 md:col-span-2 font-extralight mt-4 md:mt-12">
 						<h1 class="text-xl md:text-2xl">{{ object.ctype }}</h1>
 						<h1 class="text-5xl md:text-7xl mt-2 mb-8">{{ object.name }}</h1>
-						<h2 class="text-sm md:text-lg text-normal ">
-							{{ object.short }}
-						</h2>
+						<h2 class="text-sm md:text-lg text-normal">{{ object.short }}</h2>
 					</div>
 					<div class="mx-auto md:mx-0 order-last md:order-none md:flex md:flex-col md:justify-end">
 						<div
@@ -95,15 +92,18 @@
 					<div
 						class="rounded-xl h-20 md:h-30 grid grid-cols-2 justify-items-center content-center bg-white/20">
 						<div>
-							<h2 class="text-lg md:text-2xl">от {{ object.square }} м<sup>2</sup></h2>
+							<h2 class="text-lg md:text-2xl">
+								от {{ object.square }} м<sup>2</sup>
+							</h2>
 							<h2 class="text-xs md:text-lg">площадь апартаментов</h2>
 						</div>
 						<div>
-							<h2 class="text-lg md:text-2xl">от {{ object.formated_price }} ₽</h2>
+							<h2 class="text-lg md:text-2xl">
+								от {{ object.formated_price }} ₽
+							</h2>
 							<h2 class="text-xs md:text-lg">за м<sup>2</sup> с отделкой</h2>
 						</div>
 					</div>
-
 				</div>
 			</div>
 			<div class="z-1 absolute md:rounded-3xl opacity-70 bg-back w-full h-full"></div>
@@ -168,6 +168,79 @@
 		</div>
 	</section>
 
+	<!-- Layout gelery -->
+	{% if object.is_layouts %}
+	<section class="w-full my-20 bg-blue-back text-white">
+		<div class="z-10 container mx-auto py-24 px-2 md:px-0" id="gelery">
+			<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
+				<h2 class="text-4xl text-center">Планировки</h2>
+			</div>
+
+			<!-- Swiper -->
+			<div class="swiper mySwiper3">
+				<div class="swiper-wrapper">
+					{% for lo in object.layouts %}
+					<div class="swiper-slide ease-in-out transition duration-400 pop-open">
+						<img class="rounded-2xl drop-shadow-md h-64 w-full object-cover" src="{{ lo.image.url }}"
+							alt="" />
+					</div>
+					{% endfor %}
+				</div>
+				<div class="flex flex-row items-center justify-center mt-4">
+					<img class="max-h-14 object-contain slidePrev-btn" src='{% static "/utils/icons/pointL.png" %}' />
+					<div class="text-center swipPag" style="width: 3.5rem"></div>
+					<img class="max-h-14 object-contain slideNext-btn" src='{% static "/utils/icons/pointR.png" %}' />
+				</div>
+			</div>
+		</div>
+	</section>
+	{% endif %}
+
+	<!-- Application  -->
+	<section class="z-10 container mx-auto my-20">
+		<div class="relative mx-2 md:mx-0">
+			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
+				<form id="f1" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto"
+					action="contact">
+					{% csrf_token %}
+					<div class="md:col-span-3 flex items-center">
+						<h2 class="text-white text-2xl font-medium">
+							Оставьте свои координаты<br />и мы свяжемся с вами
+						</h2>
+					</div>
+					<div class="flex items-center">
+						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="text"
+							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя" />
+					</div>
+					<div class="flex items-center">
+						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
+							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
+					</div>
+					<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}" />
+					<div class="flex items-center justify-center md:justify-end">
+						<button type="submit"
+							class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out transition duration-300">
+							Отправить
+						</button>
+					</div>
+				</form>
+				<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
+					<h2 class="text-center text-white px-2 font-medium">
+						Ваша заявка принята!<br /><br />В скором времени наш менеджер Вам
+						перезвонит!
+					</h2>
+				</div>
+				<div class="hidden invisible form-fail flex flex-col justify-center items-center">
+					<h2 class="text-center text-red-700 px-2">
+						Уппссс.. Возникла какая то ошибка
+					</h2>
+				</div>
+			</div>
+			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover"
+				src="{{ object.bg_image.url }}" alt="" />
+		</div>
+	</section>
+
 	<!-- About -->
 	<section class="w-full mb-12" id="about">
 		<div
@@ -193,50 +266,6 @@
 		</div>
 	</section>
 
-	<!-- Application  -->
-	<section class="z-10 container mx-auto my-20">
-		<div class="relative mx-2 md:mx-0">
-			<div class="absolute rounded-3xl backdrop-blur-sm bg-back/50 w-full h-full">
-				<form id="f1" class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 md:gap-x-4 w-2/3 h-full mx-auto"
-					action="contact">
-					{% csrf_token %}
-					<div class="md:col-span-3 flex items-center">
-						<h2 class="text-white text-2xl font-medium">
-							Оставьте свои координаты<br />и мы свяжемся с вами
-						</h2>
-					</div>
-					<div class="flex items-center">
-						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="text"
-							id="name" name="name" required minlength="4" maxlength="18" placeholder="Имя" />
-					</div>
-					<div class="flex items-center">
-						<input class="rounded-4xl w-full h-12 border border-inherit underline py-4" type="tel"
-							id="phone" name="phone" required minlength="10" maxlength="15" placeholder="Телефон" />
-					</div>
-					<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
-					<div class="flex items-center justify-center md:justify-end">
-						<button type="submit"
-							class="rounded-4xl w-1/2 h-12 border border-inherit text-white m-0 p-0 hover:bg-tbrown ease-in-out transition duration-300">
-							Отправить
-						</button>
-					</div>
-				</form>
-				<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
-					<h2 class="text-center text-white px-2 font-medium">
-						Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
-					</h2>
-				</div>
-				<div class="hidden invisible form-fail flex flex-col justify-center items-center">
-					<h2 class="text-center text-red-700 px-2">
-						Уппссс.. Возникла какая то ошибка
-					</h2>
-				</div>
-			</div>
-			<img class="z-0 rounded-3xl min-h-60h md:md:min-h-0 md:h-52 w-full object-cover"
-				src="{{ object.bg_image.url }}" alt="" />
-		</div>
-	</section>
-
 	<!-- Advanteges -->
 	<section class="z-10 container mx-auto mt-12 mb-20" id="advanteges">
 		<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
@@ -257,7 +286,7 @@
 
 			<div class="swiper-wrapper">
 				{% for adv in object.advantages %}
-				<div class="swiper-slide relative ease-in-out transition duration-200 ">
+				<div class="swiper-slide relative ease-in-out transition duration-200">
 					<div
 						class="absolute md:rounded-2xl opacity-80 bg-back md:drop-shadow-md w-full h-full flex justify-center">
 						<div class="flex flex-col h-full justify-center items-center space-y-14 max-w-xl mx-2">
@@ -319,7 +348,7 @@
 								<input type="checkbox" id="policy" name="policy" />
 								<label for="policy">Я согласен на обработку моих персональных данных</label>
 							</div>
-							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}" />
 							<button type="submit"
 								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-2 hover:bg-tbrown ease-in-out transition duration-300">
 								Отправить
@@ -327,7 +356,8 @@
 						</form>
 						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
 							<h2 class="text-center text-white px-2 font-medium">
-								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
+								Ваша заявка принята!<br /><br />В скором времени наш менеджер
+								Вам перезвонит!
 							</h2>
 						</div>
 						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
@@ -349,7 +379,6 @@
 		<div class="container mx-auto h-full flex flex-col justify-around">
 			<div
 				class="w-full grid grid-cols-2 gap-y-6 justify-items-center md:flex md:flex-row md:items-center justify-between mt-8">
-
 				<div class="flex-none flex items-center w-32 h-8 md:ml-12">
 					<a href="#main" class="m-invert">
 						<img class="max-h-16 object-contain" src="{{ object.logo.url }}" />
@@ -357,7 +386,7 @@
 				</div>
 
 				<div
-					class="order-3 md:order-none col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 justify-items-center  w-full md:flex-auto md:flex flex-row md:justify-around md:mx-4 text-sm">
+					class="order-3 md:order-none col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 justify-items-center w-full md:flex-auto md:flex flex-row md:justify-around md:mx-4 text-sm">
 					<a href="#main">Главная</a>
 					<a href="#gelery">Галерея</a>
 					<a href="#about">О проекте</a>
@@ -368,34 +397,37 @@
 
 				<div class="order-2 md:order-none grid grid-cols-2 gap-1 items-center mr-12">
 					<a href="{{ object.tg_link }}">
-						<img class="w-full max-h-12 object-contain" src='{% static "/utils/icons/icon_tg_white.svg" %}' />
+						<img class="w-full max-h-12 object-contain"
+							src='{% static "/utils/icons/icon_tg_white.svg" %}' />
 					</a>
 					<a href="{{ object.wh_link }}">
-						<img class="w-full max-h-12 object-contain" src='{% static "/utils/icons/icon_watssup_white.svg" %}' />
+						<img class="w-full max-h-12 object-contain"
+							src='{% static "/utils/icons/icon_watssup_white.svg" %}' />
 					</a>
 					<a href="tel:+74957948519" class="text-sm font-thin md:hidden col-span-2">+7-495-794-85-19</a>
 				</div>
 			</div>
 
 			<div class="col-span-2 text-xs ml-3 md:ml-12 mr-12 my-4 md:my-0">
-				Сайт носит исключительно информационный
-				характер, и не при каких условиях не является публичной офертой,
-				определяемой положением пункта 2 статьи 437 Гражданского кодекса РФ
+				Сайт носит исключительно информационный характер, и не при каких
+				условиях не является публичной офертой, определяемой положением пункта
+				2 статьи 437 Гражданского кодекса РФ
 			</div>
 		</div>
 	</footer>
 
 	<!-- Modal 1 -->
-	<section class="z-20 fixed inset-0 h-screen w-screen modal" style="display: none;">
+	<section class="z-20 fixed inset-0 h-screen w-screen modal" style="display: none">
 		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-24 md:mt-40 px-2 md:px-0">
 			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-min md:h-full">
 					<div class="w-full hidden md:flex flex-col justify-center align-center">
 						<div class="ml-28">
-							<img class="max-h-28 object-contain m-invert" src="{{ object.logo.url }}" alt="">
-							<p class="text-left text-white text-2xl mt-8">{{ object.short }}</p>
+							<img class="max-h-28 object-contain m-invert" src="{{ object.logo.url }}" alt="" />
+							<p class="text-left text-white text-2xl mt-8">
+								{{ object.short }}
+							</p>
 						</div>
-
 					</div>
 					<div
 						class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
@@ -411,7 +443,7 @@
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="tel" id="phone2" name="phone" required minlength="10" maxlength="15"
 								placeholder="Телефон" />
-							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}" />
 							<button type="submit"
 								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out transition duration-300">
 								Отправить
@@ -421,7 +453,8 @@
 						</form>
 						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
 							<h2 class="text-center text-white px-2 font-medium">
-								Ваша заявка принята!<br><br>В скором времени наш менеджер Вам перезвонит!
+								Ваша заявка принята!<br /><br />В скором времени наш менеджер
+								Вам перезвонит!
 							</h2>
 						</div>
 						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
@@ -432,7 +465,7 @@
 					</div>
 				</div>
 				<button class="absolute top-0 right-0 mr-2 mt-2 close-btn">
-					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
+					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="" />
 				</button>
 			</div>
 		</div>
@@ -441,16 +474,17 @@
 	</section>
 
 	<!-- Modal 2 -->
-	<section class="z-20 fixed inset-0 h-screen w-screen modal2" style="display: none;">
+	<section class="z-20 fixed inset-0 h-screen w-screen modal2" style="display: none">
 		<div class="z-10 absolute w-full h-min md:h-full max-h-600 mt-24 md:mt-40 px-2 md:px-0">
 			<div class="container relative h-min: md:h-full mx-auto rounded-2xl border border-inherit bg-white/5">
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-2 h-min md:h-full">
 					<div class="w-full hidden md:flex flex-col justify-center align-center">
 						<div class="ml-28">
-							<img class="max-h-28 object-contain m-invert" src="{{ object.logo.url }}" alt="">
-							<p class="text-left text-white text-2xl mt-8">{{ object.short }}</p>
+							<img class="max-h-28 object-contain m-invert" src="{{ object.logo.url }}" alt="" />
+							<p class="text-left text-white text-2xl mt-8">
+								{{ object.short }}
+							</p>
 						</div>
-
 					</div>
 					<div
 						class="place-self-center h-full md:h-2/3 rounded-2xl md:backdrop-blur-sm bg-white/10 my-5 md:my-0 md:mr-5">
@@ -458,15 +492,18 @@
 							action="contact">
 							{% csrf_token %}
 							<h2 class="text-white text-base py-8">
-								Скачать полную презентацию проекта? Оставьте нам свою почту и менеджер отправит
-								вам презентацию!
+								Скачать полную презентацию проекта? Оставьте нам свою почту и
+								менеджер отправит вам презентацию!
 							</h2>
-							<label for="email3" class="text-sm text-white font-thin">Ваша почта*</label>
+							<label for="email3" class="text-sm text-white font-thin">Ваш телефон и почта*</label>
 
 							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
 								type="email" id="email3" name="email" required minlength="4" maxlength="30"
 								placeholder="Почта" />
-							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}">
+							<input class="rounded-4xl w-full h-12 border border-inherit underline bg-white my-2"
+								type="tel" id="phone21" name="phone" required minlength="10" maxlength="15"
+								placeholder="Телефон" />
+							<input type="hidden" class="invisible" name="site" value="{{ object.site.pk }}" />
 
 							<button type="submit"
 								class="rounded-4xl w-1/2 h-12 border border-inherit text-white my-4 hover:bg-tbrown ease-in-out transition duration-300">
@@ -478,7 +515,8 @@
 
 						<div class="hidden invisible form-done flex flex-col justify-center items-center h-full">
 							<h2 class="text-cente text-white px-2 font-medium">
-								Ваша заявка принята!<br><br>В скором времени мы вышлем Вам презентацию!
+								Ваша заявка принята!<br /><br />В скором времени мы вышлем Вам
+								презентацию!
 							</h2>
 						</div>
 						<div class="hidden invisible form-fail flex flex-col justify-center items-center">
@@ -486,11 +524,10 @@
 								Уппссс.. Возникла какая то ошибка
 							</h2>
 						</div>
-
 					</div>
 				</div>
 				<button class="absolute top-0 right-0 mr-2 mt-2 close-btn2">
-					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="">
+					<img class="h-8 w-8 object-contain" src="{% static '/utils/icons/close.svg' %}" alt="" />
 				</button>
 			</div>
 		</div>
@@ -498,19 +535,63 @@
 		<img class="z-0 h-full w-full object-cover" src="{{ object.bg_image.url }}" alt="" />
 	</section>
 
-	<div class="z-40 fixed right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
-		<button class="z-1 text-center text-white font-medium call h-full w-full">Call<br>Me</button>
-		<div style="display: none;" class="z-2 absolute h-36 w-40 -ml-24 md:-ml-20 -mt-20 bg-white rounded-xl grid grid-rows-3 grid-cols-1 gap-2 justify-items-center drop-shadow-xl call-modal">
+	<section class="z-40 fixed inset-0 h-screen w-screen modal23" style="display: none;">
+		<div class="z-10 absolute w-full h-full flex justify-center items-center">
+			<div class="relative rounded-2xl w-full md:w-2/3 border border-inherit bg-white/10 p-4 md:p-12 m-4 md:m-0">
+				<div class="relative swiper mySwiper4 grid grid-cols-1 md:grid-none">
+
+					<div
+						class="order-1 mt-4 md:mt-0 z-10 md:absolute w-full md:h-full grid grid-cols-2 md:grid-cols-6 gap-2 justify-items-center content-center">
+						<div class="md:col-start-1 md:col-end-2 place-self-center">
+							<img class="max-h-16 object-contain slidePrev-btn23"
+								src='{% static "/utils/icons/pointL.png" %}' />
+						</div>
+
+						<div class="md:col-end-7 md:col-span-1 place-self-center">
+							<img class="max-h-16 object-contain slideNext-btn23"
+								src='{% static "/utils/icons/pointR.png" %}' />
+						</div>
+					</div>
+					<div class="swiper-wrapper">
+						{% for lo in object.layouts %}
+						<div class="swiper-slide ease-in-out transition duration-200">
+							<img class="w-full h-full rounded-2xl object-contain" src="{{ lo.image.url }}" alt="" />
+						</div>
+						{% endfor %}
+					</div>
+
+
+
+				</div>
+
+				<button class="z-20 absolute top-0 right-0 md:top-4 md:right-4 cursor-pointer close23">
+					<img class="h-6 w-6 md:h-8 md:w-8 object-contain hover:animation-ping"
+						src="{% static '/utils/icons/close.svg' %}" alt="" />
+				</button>
+
+			</div>
+		</div>
+		<div class="z-1 absolute opacity-90 bg-back w-full h-full"></div>
+
+	</section>
+
+	<div
+		class="z-40 fixed right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
+		<button class="z-1 text-center text-white font-medium call h-full w-full">
+			Call<br />Me
+		</button>
+		<div style="display: none"
+			class="z-2 absolute h-36 w-40 -ml-24 md:-ml-20 -mt-20 bg-white rounded-xl grid grid-rows-3 grid-cols-1 gap-2 justify-items-center drop-shadow-xl call-modal">
 			<div class="rounded-full bg-gray-900 -mt-8 h-16 w-16 drop-shadow-xl">
-				<img class="w-full h-full object-cover rounded-full" src="{% static '/utils/contact.jpg' %}" alt="">
+				<img class="w-full h-full object-cover rounded-full" src="{% static '/utils/contact.jpg' %}" alt="" />
 			</div>
 			<h2 class="text-xs text-gray-600 font-base text-center -mt-1">
-				Позвоните для консультации
-				эксперту компании
+				Позвоните для консультации эксперту компании
 			</h2>
 			<a href="tel:+74957948519" class="text-sm font-semibold">+7-495-794-85-19</a>
 			<button class="absolute top-2 right-2 cursor-pointer close-call">
-				<img class="h-5 w-5 object-contain invert hover:animation-ping" src="{% static '/utils/icons/close.svg' %}" alt="">
+				<img class="h-5 w-5 object-contain invert hover:animation-ping"
+					src="{% static '/utils/icons/close.svg' %}" alt="" />
 			</button>
 		</div>
 	</div>
