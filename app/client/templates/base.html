@@ -170,8 +170,8 @@
 
 	<!-- Layout gelery -->
 	{% if object.is_layouts %}
-	<section class="w-full my-20 bg-blue-back text-white">
-		<div class="z-10 container mx-auto py-24 px-2 md:px-0" id="gelery">
+	<section class="w-full mt-20 pb-12 bg-blue-back text-white">
+		<div class="z-10 container mx-auto pt-24 px-2 md:px-0" id="gelery">
 			<div class="flex flex-row items-center justify-center w-full mt-4 mb-8">
 				<h2 class="text-4xl text-center">Планировки</h2>
 			</div>
@@ -196,6 +196,25 @@
 	</section>
 	{% endif %}
 
+	{% if object.is_video %}
+	<section class="z-10 pb-12 mb-20 bg-blue-back text-white">
+		<div class="container mx-auto content-center flex flex-col">
+			<div>
+				<h2 class="text-4xl my-4 text-center">Видео проекта</h2>
+			</div>
+
+			<div class="mt-4 mx-2 md:mx-16 h-350x md:h-500x">
+				<iframe
+					class="w-full h-full rounded-2xl"
+					src="https://www.youtube.com/embed/{{ object.video_key }}?rel=0&amp;controls=1&amp;autoplay=0&amp;mute=0&amp;start=0"
+					frameborder="0" style="pointer-events:auto" allow="autoplay; encrypted-media" allowfullscreen=""
+					title="{{ object.name }}">
+				</iframe>
+
+			</div>
+		</div>
+	</section>
+	{% endif %}
 	<!-- Application  -->
 	<section class="z-10 container mx-auto my-20">
 		<div class="relative mx-2 md:mx-0">
@@ -386,7 +405,7 @@
 				</div>
 
 				<div
-					class="order-3 md:order-none col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 justify-items-center w-full md:flex-auto md:flex flex-row md:justify-around md:mx-4 text-sm">
+					class="order-3 md:order-none col-span-2 grid grid-cols-2 gap-y-1 gap-x-2 justify-items-left w-5/6 md:w-full md:flex-auto md:flex flex-row md:justify-around md:mx-4 text-sm">
 					<a href="#main">Главная</a>
 					<a href="#gelery">Галерея</a>
 					<a href="#about">О проекте</a>
@@ -408,7 +427,7 @@
 				</div>
 			</div>
 
-			<div class="col-span-2 text-xs ml-3 md:ml-12 mr-12 my-4 md:my-0">
+			<div class="col-span-2 text-xs ml-8 md:ml-12 mr-12 my-4 md:my-0">
 				Сайт носит исключительно информационный характер, и не при каких
 				условиях не является публичной офертой, определяемой положением пункта
 				2 статьи 437 Гражданского кодекса РФ
@@ -576,7 +595,7 @@
 	</section>
 
 	<div
-		class="z-40 fixed right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
+		class="hidden md:fixed z-40 right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
 		<button class="z-1 text-center text-white font-medium call h-full w-full">
 			Call<br />Me
 		</button>
@@ -594,6 +613,13 @@
 					src="{% static '/utils/icons/close.svg' %}" alt="" />
 			</button>
 		</div>
+	</div>
+
+	<div
+		class="fixed md:hidden z-40 right-2 bottom-2 md:right-12 md:bottom-12 h-16 w-16 bg-tbrown rounded-full flex justify-center drop-shadow-xl">
+		<a href="tel:+74957948519" class="z-1 text-center text-white font-medium w-full my-auto">
+			Call<br />Me
+		</a>
 	</div>
 
 	<script src="{% static '/js/swiper-bundle.min.js' %}" type="application/javascript"></script>

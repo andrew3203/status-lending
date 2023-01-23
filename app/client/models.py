@@ -123,6 +123,10 @@ class Complex(models.Model):
         'Ссылка Telegramm',
         max_length=580,
     )
+    video_link = models.CharField(
+        'Ссылка на видео',
+        max_length=580, blank=True, default=None, null=True
+    )
 
     created_at = models.DateTimeField(
         'Создан',
@@ -163,6 +167,15 @@ class Complex(models.Model):
     @property
     def is_layouts(self):
         return len(self.layouts) > 0
+    
+    @property
+    def is_video(self):
+        return self.video_link is not None
+
+    @property
+    def video_key(self):
+        return self.video_link.rsplit('/', 1)[-1]
+            
 
         
 

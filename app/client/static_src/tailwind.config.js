@@ -52,10 +52,6 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
-            height: {
-                '88': '88px',
-                '600': '600px',
-            },
             maxHeight: {
                 '864': '864px',
                 '600': '600px',
@@ -66,6 +62,10 @@ module.exports = {
                 '80h': '80vh',
                 '75h': '75vh',
                 '70h': '70vh',
+                '88': '88px',
+                '500x': '500px',
+                '600': '600px',
+                '350x': '350px',
             },
             maxWidth: {
                 '2/3': '66%',
@@ -78,8 +78,7 @@ module.exports = {
                 '80h': '80vh',
                 '60h': '60vh',
                 '70h': '70vh',
-                '75h': '75vh',
-                
+                '75h': '75vh',   
             },
             borderRadius: {
                 'large': '56px',

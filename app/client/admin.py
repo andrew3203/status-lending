@@ -66,6 +66,7 @@ class ComplexAdmin(admin.ModelAdmin):
                 ('title_image', 'presentation', 'second_image', 'bg_image'),
                 ('desciption',),
                 ('map',),
+                ('video_link',),
                 ('wh_link', 'tg_link',),
                 ('created_at', 'updated_at',),
                 ),
