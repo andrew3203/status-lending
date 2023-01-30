@@ -1,0 +1,190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-30 17:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: client/templates/base.html:41 client/templates/base.html:65
+#: client/templates/base.html:425
+msgid "Главная"
+msgstr "Main"
+
+#: client/templates/base.html:42 client/templates/base.html:66
+#: client/templates/base.html:426
+msgid "Галерея"
+msgstr "Gelery"
+
+#: client/templates/base.html:43 client/templates/base.html:67
+#: client/templates/base.html:277 client/templates/base.html:427
+msgid "О проекте"
+msgstr "About"
+
+#: client/templates/base.html:44 client/templates/base.html:68
+#: client/templates/base.html:300 client/templates/base.html:428
+msgid "Преимущества"
+msgstr "Advantages"
+
+#: client/templates/base.html:45 client/templates/base.html:69
+#: client/templates/base.html:429
+msgid "Расположение"
+msgstr "Location"
+
+#: client/templates/base.html:46 client/templates/base.html:70
+#: client/templates/base.html:430
+msgid "Контакты"
+msgstr "Contacts"
+
+#: client/templates/base.html:89
+msgid "Получить консультацию"
+msgstr "Get the consultation"
+
+#: client/templates/base.html:97 client/templates/base.html:103
+msgid "от"
+msgstr "from"
+
+#: client/templates/base.html:99
+msgid "площадь апартаментов"
+msgstr "apartment area"
+
+#: client/templates/base.html:105
+msgid "за"
+msgstr "per"
+
+#: client/templates/base.html:105
+msgid "с отделкой"
+msgstr "with decor"
+
+#: client/templates/base.html:129
+msgid "Скачайте полную презентацию проекта"
+msgstr "Download the full presentation of the project"
+
+#: client/templates/base.html:134
+msgid "Скачать презентацию PDF"
+msgstr "Download presentation PDF"
+
+#: client/templates/base.html:152
+msgid "Фотографии проекта"
+msgstr "Project photos"
+
+#: client/templates/base.html:177
+msgid "Планировки"
+msgstr "Layouts"
+
+#: client/templates/base.html:204
+msgid "ProjectVideo"
+msgstr "Our Video"
+
+#: client/templates/base.html:229 client/templates/base.html:362
+msgid "Оставьте свои координаты"
+msgstr "Leave your contact details"
+
+#: client/templates/base.html:231 client/templates/base.html:364
+msgid "и мы свяжемся с вами"
+msgstr "and we will contact you"
+
+#: client/templates/base.html:237 client/templates/base.html:369
+msgid "Имя"
+msgstr "First Name"
+
+#: client/templates/base.html:241 client/templates/base.html:373
+#: client/templates/base.html:480 client/templates/base.html:545
+msgid "Телефон"
+msgstr "Phone"
+
+#: client/templates/base.html:247 client/templates/base.html:388
+#: client/templates/base.html:485 client/templates/base.html:550
+msgid "Отправить"
+msgstr "Send"
+
+#: client/templates/base.html:253 client/templates/base.html:393
+#: client/templates/base.html:493 client/templates/base.html:559
+msgid "Ваша заявка принята!"
+msgstr "Your application is accepted!"
+
+#: client/templates/base.html:255 client/templates/base.html:395
+#: client/templates/base.html:495 client/templates/base.html:561
+msgid "В скором времени наш менеджер Вам перезвонит!"
+msgstr "Our manager will call you back soon!"
+
+#: client/templates/base.html:261 client/templates/base.html:400
+#: client/templates/base.html:500 client/templates/base.html:566
+msgid "Уппссс.. Возникла какая то ошибка"
+msgstr "Oops.. There was an error."
+
+#: client/templates/base.html:346
+msgid "OnMap"
+msgstr "Location"
+
+#: client/templates/base.html:377 client/templates/base.html:542
+msgid "Почта"
+msgstr "Email"
+
+#: client/templates/base.html:382 client/templates/base.html:488
+#: client/templates/base.html:553
+msgid "Я согласен на обработку моих персональных данных"
+msgstr "I agree to the processing of my personal data"
+
+#: client/templates/base.html:447
+msgid "Oferta"
+msgstr ""
+"The site is for informational purposes only, and under no circumstances is "
+"not a public offer"
+
+#: client/templates/base.html:471
+msgid ""
+"Хотите узнать подробнее? Оставьте номер и менеджер перезвонит вам в удобное "
+"время"
+msgstr ""
+"Want to know more? Leave the number and the manager will call you back at a "
+"convenient time"
+
+#: client/templates/base.html:475
+msgid "Ваш номер телефона*"
+msgstr "Your phone number*"
+
+#: client/templates/base.html:533
+msgid ""
+"Скачать полную презентацию проекта? Оставьте нам свою почту и менеджер "
+"отправит вам презентацию!"
+msgstr ""
+"Want to know more? Leave the number and the manager will call you back at a "
+"convenient time"
+
+#: client/templates/base.html:536
+msgid "Ваш телефон и почта*"
+msgstr "Your phone and email*"
+
+#: client/templates/base.html:632
+msgid "Позвоните для консультации эксперту компании"
+msgstr "Your phone and email*"
+
+#: lending/settings.py:149
+msgid "English"
+msgstr "English"
+
+#: lending/settings.py:150
+msgid "Russian"
+msgstr "Russian"
+
+#, fuzzy
+#~ msgid "Видео проекта"
+#~ msgstr "About"
+
+#, fuzzy
+#~| msgid "Расположение"
+#~ msgid "Расположение на карте"
+#~ msgstr "Location"

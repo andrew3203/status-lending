@@ -74,6 +74,10 @@ class Complex(models.Model):
         help_text='Например: от 200 до 1500',
         max_length=20,
     )
+    phone = models.CharField(
+        'Контактный телефон',
+        max_length=20, null=True
+    )
     price = models.IntegerField(
         'Цена за м2',
     )
@@ -174,7 +178,8 @@ class Complex(models.Model):
 
     @property
     def video_key(self):
-        return self.video_link.rsplit('/', 1)[-1]
+        if self.video_link:
+            return self.video_link.rsplit('/', 1)[-1]
             
 
         
