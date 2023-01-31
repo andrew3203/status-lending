@@ -9,12 +9,15 @@ from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
+import logging
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 # Create your views here.
  
 def index(request):
     st = SiteData.objects.filter(site=get_current_site(request)).first()
-    print(request.META)
+    logger.warning(str(request.META))
     if st is not None:
         complex  = Complex.objects.filter(
             site = st,
