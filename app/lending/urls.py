@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('client.urls')),
     path("__reload__/", include("django_browser_reload.urls")),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
 
 if bool(settings.DEBUG):
