@@ -150,8 +150,11 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 
+#LOCALE_PATHS = (
+#    os.path.join(BASE_DIR, 'locale/'),
+#)
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, 'locale/'),
+   os.path.abspath(os.path.join(os.path.dirname(__file__), 'locale')),
 )
 
 
