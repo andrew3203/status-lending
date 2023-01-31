@@ -14,6 +14,7 @@ from django.contrib.sites.shortcuts import get_current_site
  
 def index(request):
     st = SiteData.objects.filter(site=get_current_site(request)).first()
+    print(request.META)
     if st is not None:
         complex  = Complex.objects.filter(
             site = st,
