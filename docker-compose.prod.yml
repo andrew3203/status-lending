@@ -11,6 +11,7 @@ services:
     volumes:
       - static_volume:/home/app/lweb/staticfiles
       - media_volume:/home/app/lweb/mediafiles
+      - locale_volume:/home/app/lweb/locale
     expose:
       - 8078
     env_file:
@@ -22,6 +23,7 @@ services:
     volumes:
       - static_volume:/home/app/lweb/staticfiles
       - media_volume:/home/app/lweb/mediafiles
+      - locale_volume:/home/app/lweb/locale
     ports:
       - 8079:8079
     depends_on:
@@ -46,3 +48,4 @@ volumes:
   static_volume:
   media_volume:
   postgres_data:
+  locale_volume:
