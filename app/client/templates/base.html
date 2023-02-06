@@ -44,6 +44,10 @@
 				<a href="#advanteges">{% translate "Преимущества" %}</a>
 				<a href="#location">{% translate "Расположение" %}</a>
 				<a href="#contacts">{% translate "Контакты" %}</a>
+
+				{% get_current_language as LANGUAGE_CODE %}
+				{{ LANGUAGE_CODE }}
+
 			</div>
 			<div class="flex-none flex flex-row items-center gap-4 md:gap-1 mr-4 md:mr-12">
 				<a href="{{ object.tg_link }}">
