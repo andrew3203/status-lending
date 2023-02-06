@@ -131,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+#LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -150,11 +150,8 @@ LANGUAGES = (
     ('ru', _('Russian')),
 )
 
-#LOCALE_PATHS = (
-#    os.path.join(BASE_DIR, 'locale/'),
-#)
 LOCALE_PATHS = (
-   os.path.abspath(os.path.join(os.path.dirname(__file__), 'locale')),
+    os.path.join(BASE_DIR, 'locale/'),
 )
 
 

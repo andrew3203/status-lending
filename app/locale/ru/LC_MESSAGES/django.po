@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-30 17:31+0300\n"
+"POT-Creation-Date: 2023-02-06 10:23+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,288 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: client/models.py:18 client/models.py:52 client/models.py:308
+msgid "Сайт"
+msgstr "Сайт"
+
+#: client/models.py:22
+msgid "Заголовок сайта"
+msgstr "Заголовок сайта"
+
+#: client/models.py:23
+msgid "Название сайта во вкладке"
+msgstr "Название сайта во вкладке"
+
+#: client/models.py:27
+msgid "Краткое описание (СЕО)"
+msgstr "Краткое описание (СЕО)"
+
+#: client/models.py:28
+msgid "Описание сайта (для ссылки) CEO"
+msgstr "Описание сайта (для ссылки) CEO"
+
+#: client/models.py:32
+msgid "Скрипты аналитики"
+msgstr "Скрипты аналитики"
+
+#: client/models.py:36 client/models.py:137 client/models.py:325
+msgid "Создан"
+msgstr "Создан"
+
+#: client/models.py:42
+msgid "Данные сайта"
+msgstr "Данные сайта"
+
+#: client/models.py:43
+msgid "Данные сайтов"
+msgstr "Данные сайтов"
+
+#: client/models.py:56
+msgid "Тип ЖК"
+msgstr "Тип ЖК"
+
+#: client/models.py:57
+msgid "Например: Клубный Дом, Жилой Комплекс и тд"
+msgstr "Например: Клубный Дом, Жилой Комплекс и тд"
+
+#: client/models.py:61
+msgid "Название колмплекса"
+msgstr "Название колмплекса"
+
+#: client/models.py:65
+msgid "Краткое описание"
+msgstr "Краткое описание"
+
+#: client/models.py:66
+msgid "короткая фраза в начале страницы"
+msgstr "короткая фраза в начале страницы"
+
+#: client/models.py:70
+msgid "Название страницы (латиницей)"
+msgstr "Название страницы (латиницей)"
+
+#: client/models.py:74
+msgid "Доступная площядь"
+msgstr "Доступная площядь"
+
+#: client/models.py:75
+msgid "Например: от 200 до 1500"
+msgstr "Например: от 200 до 1500"
+
+#: client/models.py:79
+#, fuzzy
+#| msgid "Ваш номер телефона*"
+msgid "Контактный телефон"
+msgstr "Ваш номер телефона*"
+
+#: client/models.py:83 client/models.py:188
+msgid "Цена за м2"
+msgstr "Цена за м2"
+
+#: client/models.py:86
+msgid "Логотип"
+msgstr "Логотип"
+
+#: client/models.py:90
+msgid "Обложка"
+msgstr "Обложка"
+
+#: client/models.py:91
+msgid "Певрая фотография на странице"
+msgstr "Певрая фотография на странице"
+
+#: client/models.py:95
+#, fuzzy
+#| msgid "Фотографии проекта"
+msgid "Презентация проекта"
+msgstr "Фотографии проекта"
+
+#: client/models.py:99
+msgid "Фото к описанию"
+msgstr "Фото к описанию"
+
+#: client/models.py:103
+msgid "Фото на задний пдан формы"
+msgstr "Фото на задний пдан формы"
+
+#: client/models.py:107 client/models.py:213 client/models.py:273
+msgid "Описание"
+msgstr "Описание"
+
+#: client/models.py:111
+msgid "Скрипт карты"
+msgstr "Скрипт карты"
+
+#: client/models.py:115
+msgid "Опубликован"
+msgstr "Опубликован"
+
+#: client/models.py:119
+msgid "Отобразить как отдельный сайт"
+msgstr "Отобразить как отдельный сайт"
+
+#: client/models.py:124
+msgid "Ссылка WhatsApp"
+msgstr "Ссылка WhatsApp"
+
+#: client/models.py:128
+msgid "Ссылка Telegramm"
+msgstr "Ссылка Telegramm"
+
+#: client/models.py:132
+msgid "Ссылка на видео"
+msgstr "Ссылка на видео"
+
+#: client/models.py:141
+msgid "Изменен"
+msgstr "Изменен"
+
+#: client/models.py:146 client/models.py:223 client/models.py:250
+#: client/models.py:269 client/models.py:293
+msgid "Комплекс"
+msgstr "Комплекс"
+
+#: client/models.py:147
+msgid "Комплексы"
+msgstr "Комплексы"
+
+#: client/models.py:192
+msgid "Безопасность"
+msgstr "Безопасность"
+
+#: client/models.py:193 client/models.py:279
+#, fuzzy
+#| msgid "Планировки"
+msgid "Планировка"
+msgstr "Планировки"
+
+#: client/models.py:194
+msgid "Внутренняя отделка"
+msgstr "Внутренняя отделка"
+
+#: client/models.py:195
+msgid "Концепция дома"
+msgstr "Концепция дома"
+
+#: client/models.py:196
+msgid "Инфраструктура"
+msgstr "Инфраструктура"
+
+#: client/models.py:197 client/templates/base.html:45
+#: client/templates/base.html:69 client/templates/base.html:429
+msgid "Расположение"
+msgstr "Расположение"
+
+#: client/models.py:198
+msgid "Архитектура"
+msgstr "Архитектура"
+
+#: client/models.py:199
+msgid "Консьерж сервис"
+msgstr "Консьерж сервис"
+
+#: client/models.py:200
+msgid "Парки"
+msgstr "Парки"
+
+#: client/models.py:201
+msgid "Школы"
+msgstr "Школы"
+
+#: client/models.py:202
+msgid "Театры и кино"
+msgstr "Театры и кино"
+
+#: client/models.py:203
+msgid "Больницы и мед центры"
+msgstr "Больницы и мед центры"
+
+#: client/models.py:208 client/models.py:241
+msgid "Название"
+msgstr "Название"
+
+#: client/models.py:217 client/models.py:264 client/models.py:288
+#, fuzzy
+#| msgid "Фотографии проекта"
+msgid "Фотография"
+msgstr "Фотографии проекта"
+
+#: client/models.py:218
+#, fuzzy
+#| msgid "Фотографии проекта"
+msgid "Фотография на задний фон"
+msgstr "Фотографии проекта"
+
+#: client/models.py:232
+#, fuzzy
+#| msgid "Преимущества"
+msgid "Приемущество"
+msgstr "Преимущества"
+
+#: client/models.py:233
+#, fuzzy
+#| msgid "Преимущества"
+msgid "Приемущества"
+msgstr "Преимущества"
+
+#: client/models.py:242
+#, fuzzy
+#| msgid "площадь апартаментов"
+msgid "Например: Апартаментов или Вилл"
+msgstr "площадь апартаментов"
+
+#: client/models.py:246
+#, fuzzy
+#| msgid "Преимущества"
+msgid "Колличество"
+msgstr "Преимущества"
+
+#: client/models.py:255
+msgid "Особенность"
+msgstr "Особенность"
+
+#: client/models.py:256
+msgid "Особенности"
+msgstr "Особенности"
+
+#: client/models.py:280 client/templates/base.html:177
+msgid "Планировки"
+msgstr "Планировки"
+
+#: client/models.py:298
+msgid "Фото"
+msgstr "Фото"
+
+#: client/models.py:299
+#, fuzzy
+#| msgid "Фотографии проекта"
+msgid "Фотографии"
+msgstr "Фотографии проекта"
+
+#: client/models.py:312 client/templates/base.html:237
+#: client/templates/base.html:369
+msgid "Имя"
+msgstr "Имя"
+
+#: client/models.py:316 client/templates/base.html:241
+#: client/templates/base.html:373 client/templates/base.html:480
+#: client/templates/base.html:545
+msgid "Телефон"
+msgstr "Телефон"
+
+#: client/models.py:320 client/templates/base.html:377
+#: client/templates/base.html:542
+msgid "Почта"
+msgstr "Почта"
+
+#: client/models.py:330
+msgid "Клиент"
+msgstr "Клиент"
+
+#: client/models.py:331
+msgid "Клиенты"
+msgstr "Клиенты"
 
 #: client/templates/base.html:41 client/templates/base.html:65
 #: client/templates/base.html:425
@@ -39,11 +321,6 @@ msgstr "О проекте"
 #: client/templates/base.html:300 client/templates/base.html:428
 msgid "Преимущества"
 msgstr "Преимущества"
-
-#: client/templates/base.html:45 client/templates/base.html:69
-#: client/templates/base.html:429
-msgid "Расположение"
-msgstr "Расположение"
 
 #: client/templates/base.html:46 client/templates/base.html:70
 #: client/templates/base.html:430
@@ -82,10 +359,6 @@ msgstr "Скачать презентацию PDF"
 msgid "Фотографии проекта"
 msgstr "Фотографии проекта"
 
-#: client/templates/base.html:177
-msgid "Планировки"
-msgstr "Планировки"
-
 #: client/templates/base.html:204
 msgid "ProjectVideo"
 msgstr "Видео проекта"
@@ -97,15 +370,6 @@ msgstr "Оставьте свои координаты"
 #: client/templates/base.html:231 client/templates/base.html:364
 msgid "и мы свяжемся с вами"
 msgstr "и мы свяжемся с вами"
-
-#: client/templates/base.html:237 client/templates/base.html:369
-msgid "Имя"
-msgstr "Имя"
-
-#: client/templates/base.html:241 client/templates/base.html:373
-#: client/templates/base.html:480 client/templates/base.html:545
-msgid "Телефон"
-msgstr "Телефон"
 
 #: client/templates/base.html:247 client/templates/base.html:388
 #: client/templates/base.html:485 client/templates/base.html:550
@@ -130,10 +394,6 @@ msgstr "Уппссс.. Возникла какая то ошибка"
 #: client/templates/base.html:346
 msgid "OnMap"
 msgstr "Расположение на карте"
-
-#: client/templates/base.html:377 client/templates/base.html:542
-msgid "Почта"
-msgstr "Почта"
 
 #: client/templates/base.html:382 client/templates/base.html:488
 #: client/templates/base.html:553

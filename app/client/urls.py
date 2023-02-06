@@ -16,6 +16,8 @@ Including another URLconf
 from django.urls import path
 from client.views import index, ComplexDetailView, ClientCreateAPIView
 
+app_name = 'client'
+
 urlpatterns = [
     path('', index, name='index'),
     path('api/contact/', ClientCreateAPIView.as_view(), name='contact'),

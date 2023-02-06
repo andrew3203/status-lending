@@ -2,13 +2,14 @@ from django.views.generic import DetailView
 from django.shortcuts import render
 from client import serializers
 from rest_framework import generics
-from client.models import Complex, Client, Site, SiteData
+from client.models import Complex, Client, SiteData
 from django.http import HttpResponseNotFound
 from rest_framework.response import Response
 from rest_framework import status
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
+from django.utils.translation import get_language, activate, gettext
 import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -17,6 +18,9 @@ logger = logging.getLogger(__name__)
  
 def index(request):
     st = SiteData.objects.filter(site=get_current_site(request)).first()
+    lan = get_language()
+    activate(lan)
+    print(lan)
     logger.warning(str(request.META))
     if st is not None:
         complex  = Complex.objects.filter(
