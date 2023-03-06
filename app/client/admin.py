@@ -61,7 +61,7 @@ class ComplexAdmin(admin.ModelAdmin):
                 ('square', 'price'),
                 ('short',),
                 ('slug',),
-                ('phone',),
+                ('phone', 'title_phone'),
                 ('site', 'is_published', 'private'),
                 ('logo',),
                 ('title_image', 'presentation', 'second_image', 'bg_image'),

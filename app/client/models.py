@@ -79,6 +79,10 @@ class Complex(models.Model):
         _('Контактный телефон'),
         max_length=20, null=True
     )
+    title_phone = models.CharField(
+        _('Контактный телефон (заголовок)'),
+        max_length=20, null=True
+    )
     price = models.IntegerField(
         _('Цена за м2'),
     )
