@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-06 10:23+0300\n"
+"POT-Creation-Date: 2023-03-06 12:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,7 +186,7 @@ msgid "Инфраструктура"
 msgstr "Infrastructure"
 
 #: client/models.py:197 client/templates/base.html:45
-#: client/templates/base.html:69 client/templates/base.html:429
+#: client/templates/base.html:70 client/templates/base.html:430
 msgid "Расположение"
 msgstr "Location"
 
@@ -262,7 +262,7 @@ msgstr "Peculiarity"
 msgid "Особенности"
 msgstr "Peculiarities"
 
-#: client/models.py:280 client/templates/base.html:177
+#: client/models.py:280 client/templates/base.html:178
 msgid "Планировки"
 msgstr "Layouts"
 
@@ -276,18 +276,18 @@ msgstr "Photo"
 msgid "Фотографии"
 msgstr "Project photos"
 
-#: client/models.py:312 client/templates/base.html:237
-#: client/templates/base.html:369
+#: client/models.py:312 client/templates/base.html:238
+#: client/templates/base.html:370
 msgid "Имя"
 msgstr "First Name"
 
-#: client/models.py:316 client/templates/base.html:241
-#: client/templates/base.html:373 client/templates/base.html:480
+#: client/models.py:316 client/templates/base.html:242
+#: client/templates/base.html:374 client/templates/base.html:480
 #: client/templates/base.html:545
 msgid "Телефон"
 msgstr "Phone"
 
-#: client/models.py:320 client/templates/base.html:377
+#: client/models.py:320 client/templates/base.html:378
 #: client/templates/base.html:542
 msgid "Почта"
 msgstr "Email"
@@ -300,100 +300,101 @@ msgstr "Client"
 msgid "Клиенты"
 msgstr "Clients"
 
-#: client/templates/base.html:41 client/templates/base.html:65
-#: client/templates/base.html:425
+#: client/templates/base.html:41 client/templates/base.html:66
+#: client/templates/base.html:426
 msgid "Главная"
 msgstr "Main"
 
-#: client/templates/base.html:42 client/templates/base.html:66
-#: client/templates/base.html:426
+#: client/templates/base.html:42 client/templates/base.html:67
+#: client/templates/base.html:427
 msgid "Галерея"
 msgstr "Gelery"
 
-#: client/templates/base.html:43 client/templates/base.html:67
-#: client/templates/base.html:277 client/templates/base.html:427
+#: client/templates/base.html:43 client/templates/base.html:68
+#: client/templates/base.html:278 client/templates/base.html:428
 msgid "О проекте"
 msgstr "About"
 
-#: client/templates/base.html:44 client/templates/base.html:68
-#: client/templates/base.html:300 client/templates/base.html:428
+#: client/templates/base.html:44 client/templates/base.html:69
+#: client/templates/base.html:301 client/templates/base.html:429
 msgid "Преимущества"
 msgstr "Advantages"
 
-#: client/templates/base.html:46 client/templates/base.html:70
-#: client/templates/base.html:430
+#: client/templates/base.html:46 client/templates/base.html:71
 msgid "Контакты"
 msgstr "Contacts"
 
-#: client/templates/base.html:89
+#: client/templates/base.html:90
 msgid "Получить консультацию"
 msgstr "Get the consultation"
 
-#: client/templates/base.html:97 client/templates/base.html:103
+#: client/templates/base.html:98 client/templates/base.html:104
 msgid "от"
 msgstr "from"
 
-#: client/templates/base.html:99
-msgid "площадь апартаментов"
+#: client/templates/base.html:100
+#, fuzzy
+#| msgid "площадь апартаментов"
+msgid "площадь квартир"
 msgstr "apartment area"
 
-#: client/templates/base.html:105
+#: client/templates/base.html:106
 msgid "за"
 msgstr "per"
 
-#: client/templates/base.html:105
+#: client/templates/base.html:106
 msgid "с отделкой"
 msgstr "with decor"
 
-#: client/templates/base.html:129
+#: client/templates/base.html:130
 msgid "Скачайте полную презентацию проекта"
 msgstr "Download the full presentation of the project"
 
-#: client/templates/base.html:134
+#: client/templates/base.html:135
 msgid "Скачать презентацию PDF"
 msgstr "Download presentation PDF"
 
-#: client/templates/base.html:152
+#: client/templates/base.html:153
 msgid "Фотографии проекта"
 msgstr "Project photos"
 
-#: client/templates/base.html:204
+#: client/templates/base.html:205
 msgid "ProjectVideo"
 msgstr "Our Video"
 
-#: client/templates/base.html:229 client/templates/base.html:362
+#: client/templates/base.html:230 client/templates/base.html:363
 msgid "Оставьте свои координаты"
 msgstr "Leave your contact details"
 
-#: client/templates/base.html:231 client/templates/base.html:364
+#: client/templates/base.html:232 client/templates/base.html:365
 msgid "и мы свяжемся с вами"
 msgstr "and we will contact you"
 
-#: client/templates/base.html:247 client/templates/base.html:388
+#: client/templates/base.html:248 client/templates/base.html:389
 #: client/templates/base.html:485 client/templates/base.html:550
 msgid "Отправить"
 msgstr "Send"
 
-#: client/templates/base.html:253 client/templates/base.html:393
+#: client/templates/base.html:254 client/templates/base.html:394
 #: client/templates/base.html:493 client/templates/base.html:559
 msgid "Ваша заявка принята!"
 msgstr "Your application is accepted!"
 
-#: client/templates/base.html:255 client/templates/base.html:395
+#: client/templates/base.html:256 client/templates/base.html:396
 #: client/templates/base.html:495 client/templates/base.html:561
 msgid "В скором времени наш менеджер Вам перезвонит!"
 msgstr "Our manager will call you back soon!"
 
-#: client/templates/base.html:261 client/templates/base.html:400
+#: client/templates/base.html:262 client/templates/base.html:401
 #: client/templates/base.html:500 client/templates/base.html:566
 msgid "Уппссс.. Возникла какая то ошибка"
 msgstr "Oops.. There was an error."
 
-#: client/templates/base.html:346
+#: client/templates/base.html:347
 msgid "OnMap"
 msgstr "Location"
 
-#: client/templates/base.html:382 client/templates/base.html:488
+#: client/templates/base.html:383 client/templates/base.html:488
 #: client/templates/base.html:553
 msgid "Я согласен на обработку моих персональных данных"
 msgstr "I agree to the processing of my personal data"

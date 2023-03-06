@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-06 10:23+0300\n"
+"POT-Creation-Date: 2023-03-06 12:22+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,7 +188,7 @@ msgid "Инфраструктура"
 msgstr "Инфраструктура"
 
 #: client/models.py:197 client/templates/base.html:45
-#: client/templates/base.html:69 client/templates/base.html:429
+#: client/templates/base.html:70 client/templates/base.html:430
 msgid "Расположение"
 msgstr "Расположение"
 
@@ -264,7 +264,7 @@ msgstr "Особенность"
 msgid "Особенности"
 msgstr "Особенности"
 
-#: client/models.py:280 client/templates/base.html:177
+#: client/models.py:280 client/templates/base.html:178
 msgid "Планировки"
 msgstr "Планировки"
 
@@ -278,18 +278,18 @@ msgstr "Фото"
 msgid "Фотографии"
 msgstr "Фотографии проекта"
 
-#: client/models.py:312 client/templates/base.html:237
-#: client/templates/base.html:369
+#: client/models.py:312 client/templates/base.html:238
+#: client/templates/base.html:370
 msgid "Имя"
 msgstr "Имя"
 
-#: client/models.py:316 client/templates/base.html:241
-#: client/templates/base.html:373 client/templates/base.html:480
+#: client/models.py:316 client/templates/base.html:242
+#: client/templates/base.html:374 client/templates/base.html:480
 #: client/templates/base.html:545
 msgid "Телефон"
 msgstr "Телефон"
 
-#: client/models.py:320 client/templates/base.html:377
+#: client/models.py:320 client/templates/base.html:378
 #: client/templates/base.html:542
 msgid "Почта"
 msgstr "Почта"
@@ -302,100 +302,101 @@ msgstr "Клиент"
 msgid "Клиенты"
 msgstr "Клиенты"
 
-#: client/templates/base.html:41 client/templates/base.html:65
-#: client/templates/base.html:425
+#: client/templates/base.html:41 client/templates/base.html:66
+#: client/templates/base.html:426
 msgid "Главная"
 msgstr "Главная"
 
-#: client/templates/base.html:42 client/templates/base.html:66
-#: client/templates/base.html:426
+#: client/templates/base.html:42 client/templates/base.html:67
+#: client/templates/base.html:427
 msgid "Галерея"
 msgstr "Галерея"
 
-#: client/templates/base.html:43 client/templates/base.html:67
-#: client/templates/base.html:277 client/templates/base.html:427
+#: client/templates/base.html:43 client/templates/base.html:68
+#: client/templates/base.html:278 client/templates/base.html:428
 msgid "О проекте"
 msgstr "О проекте"
 
-#: client/templates/base.html:44 client/templates/base.html:68
-#: client/templates/base.html:300 client/templates/base.html:428
+#: client/templates/base.html:44 client/templates/base.html:69
+#: client/templates/base.html:301 client/templates/base.html:429
 msgid "Преимущества"
 msgstr "Преимущества"
 
-#: client/templates/base.html:46 client/templates/base.html:70
-#: client/templates/base.html:430
+#: client/templates/base.html:46 client/templates/base.html:71
 msgid "Контакты"
 msgstr "Контакты"
 
-#: client/templates/base.html:89
+#: client/templates/base.html:90
 msgid "Получить консультацию"
 msgstr "Получить консультацию"
 
-#: client/templates/base.html:97 client/templates/base.html:103
+#: client/templates/base.html:98 client/templates/base.html:104
 msgid "от"
 msgstr "от"
 
-#: client/templates/base.html:99
-msgid "площадь апартаментов"
+#: client/templates/base.html:100
+#, fuzzy
+#| msgid "площадь апартаментов"
+msgid "площадь квартир"
 msgstr "площадь апартаментов"
 
-#: client/templates/base.html:105
+#: client/templates/base.html:106
 msgid "за"
 msgstr "за"
 
-#: client/templates/base.html:105
+#: client/templates/base.html:106
 msgid "с отделкой"
 msgstr "с отделкой"
 
-#: client/templates/base.html:129
+#: client/templates/base.html:130
 msgid "Скачайте полную презентацию проекта"
 msgstr "Скачайте полную презентацию проекта"
 
-#: client/templates/base.html:134
+#: client/templates/base.html:135
 msgid "Скачать презентацию PDF"
 msgstr "Скачать презентацию PDF"
 
-#: client/templates/base.html:152
+#: client/templates/base.html:153
 msgid "Фотографии проекта"
 msgstr "Фотографии проекта"
 
-#: client/templates/base.html:204
+#: client/templates/base.html:205
 msgid "ProjectVideo"
 msgstr "Видео проекта"
 
-#: client/templates/base.html:229 client/templates/base.html:362
+#: client/templates/base.html:230 client/templates/base.html:363
 msgid "Оставьте свои координаты"
 msgstr "Оставьте свои координаты"
 
-#: client/templates/base.html:231 client/templates/base.html:364
+#: client/templates/base.html:232 client/templates/base.html:365
 msgid "и мы свяжемся с вами"
 msgstr "и мы свяжемся с вами"
 
-#: client/templates/base.html:247 client/templates/base.html:388
+#: client/templates/base.html:248 client/templates/base.html:389
 #: client/templates/base.html:485 client/templates/base.html:550
 msgid "Отправить"
 msgstr "Отправить"
 
-#: client/templates/base.html:253 client/templates/base.html:393
+#: client/templates/base.html:254 client/templates/base.html:394
 #: client/templates/base.html:493 client/templates/base.html:559
 msgid "Ваша заявка принята!"
 msgstr "Ваша заявка принята!"
 
-#: client/templates/base.html:255 client/templates/base.html:395
+#: client/templates/base.html:256 client/templates/base.html:396
 #: client/templates/base.html:495 client/templates/base.html:561
 msgid "В скором времени наш менеджер Вам перезвонит!"
 msgstr "В скором времени наш менеджер Вам перезвонит!"
 
-#: client/templates/base.html:261 client/templates/base.html:400
+#: client/templates/base.html:262 client/templates/base.html:401
 #: client/templates/base.html:500 client/templates/base.html:566
 msgid "Уппссс.. Возникла какая то ошибка"
 msgstr "Уппссс.. Возникла какая то ошибка"
 
-#: client/templates/base.html:346
+#: client/templates/base.html:347
 msgid "OnMap"
 msgstr "Расположение на карте"
 
-#: client/templates/base.html:382 client/templates/base.html:488
+#: client/templates/base.html:383 client/templates/base.html:488
 #: client/templates/base.html:553
 msgid "Я согласен на обработку моих персональных данных"
 msgstr "Я согласен на обработку моих персональных данных"
