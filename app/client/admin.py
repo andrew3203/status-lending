@@ -1,5 +1,5 @@
-from django.contrib import admin
 from client.models import *
+from django.contrib import admin
 
 
 class SiteFilter(admin.SimpleListFilter):
@@ -7,7 +7,11 @@ class SiteFilter(admin.SimpleListFilter):
     parameter_name = 'site_pk'
 
     def lookups(self, request, model_admin):
-        sites = set([o.site.site for o in model_admin.model.objects.all()])
+        sites = set([
+            o.site.site
+            for o in model_admin.model.objects.all()
+            if o is not None and o.site is not None
+        ])
         return [(c.id, c.name) for c in sites]
 
     def queryset(self, request, queryset):
