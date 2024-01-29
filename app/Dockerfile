@@ -30,7 +30,11 @@ RUN npm install -g nodemon
 # install dependencies
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+# Добавьте зависимости для сборки Pillow
+RUN apk add --no-cache jpeg-dev zlib-dev libjpeg
+
+# Замените команду установки wheel на установку из requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # copy entrypoint.sh
 COPY ./entrypoint.sh .
