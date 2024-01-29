@@ -24,7 +24,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 DEBUG = int(os.environ.get("DEBUG", default=0))
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://damacpropertie.ru",
+    "https://damacproperty.ru",
+    "https://deluxehome.moscow",
+    "https://hleb-dom.ru",
+    "https://m.hleb-dom.ru",
+    "https://mudondubai.ru",
+    "https://trend-dom.ru",
+    "https://viewz-residence.ru",
+]
+CSRF_COOKIE_HTTPONLY = True
 ALLOWED_HOSTS = ['*']
 
 INTERNAL_IPS = [
