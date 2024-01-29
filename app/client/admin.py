@@ -12,6 +12,7 @@ class SiteFilter(admin.SimpleListFilter):
             for o in model_admin.model.objects.all()
             if o is not None and o.site is not None
         ])
+        
         return [(c.id, c.name) for c in sites]
 
     def queryset(self, request, queryset):

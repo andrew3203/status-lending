@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,11 +45,7 @@ INSTALLED_APPS = [
 
 
     # 3rd party apps
-    #'django_celery_beat',
-    #'django_cleanup.apps.CleanupConfig',
-    'debug_toolbar',
     'tailwind',
-    'django_browser_reload',
     'ckeditor',
     'django_cleanup.apps.CleanupConfig',
     'rest_framework',
@@ -69,8 +65,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     'corsheaders.middleware.CorsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'lending.urls'
@@ -175,17 +169,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Tailwind
 TAILWIND_APP_NAME = 'client'
 
-
-# CELERY
-REDIS_URL = os.environ.get('REDIS_URL', 'redis://lredis:6379')
-BROKER_URL = REDIS_URL
-CELERY_BROKER_URL = REDIS_URL
-CELERY_RESULT_BACKEND = REDIS_URL
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = TIME_ZONE
-CELERY_TASK_DEFAULT_QUEUE = 'default'
 
 # SITE_ID = 1
 
